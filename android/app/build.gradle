@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'dev.flutter.flutter-gradle-plugin'
+}
+
+android {
+    namespace "com.example.mjpr1"
+
+    // ✅ Updated SDKs to latest versions required by plugins
+    compileSdk 36
+    defaultConfig {
+        applicationId "com.example.mjpr1"
+        minSdk 26
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+
+        // ✅ MultiDex for large builds
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+        }
+    }
+
+    // ✅ Ensure Java 17 compatibility
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    // ✅ Prevent .so conflicts for ONNX / TFLite
+    packagingOptions {
+        pickFirst '**/*.so'
+        pickFirst '**/libonnxruntime4j_jni.so'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    // ✅ Core Android dependencies
+    implementation "androidx.core:core-ktx:1.13.1"
+    implementation "androidx.appcompat:appcompat:1.7.0"
+    implementation "com.google.android.material:material:1.12.0"
+
+    // ✅ MultiDex
+    implementation "androidx.multidex:multidex:2.0.1"
+
+    // ✅ TensorFlow Lite (optional for other ML tasks)
+    implementation "org.tensorflow:tensorflow-lite:2.13.0"
+    implementation "org.tensorflow:tensorflow-lite-gpu:2.13.0"
+    implementation "org.tensorflow:tensorflow-lite-support:0.4.4"
+
+    // ✅ Use Android-native ONNX Runtime
+    implementation "com.microsoft.onnxruntime:onnxruntime-android:1.18.0"
+
+}
