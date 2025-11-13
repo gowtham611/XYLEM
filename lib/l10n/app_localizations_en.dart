@@ -134,4 +134,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get kannada => 'ಕನ್ನಡ';
+
+  @override
+  String get monitor => 'Monitor';
+
+  @override
+  String get liveSensorData => 'Live Sensor Data';
+
+  @override
+  String get predict => 'Predict';
+
+  @override
+  String get aiRecommendations => 'AI Recommendations';
+
+  @override
+  String get weatherForecast => 'Weather Forecast';
+
+  @override
+  String get priceTracker => 'Price Tracker';
 }

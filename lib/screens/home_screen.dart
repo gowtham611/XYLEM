@@ -13,6 +13,7 @@ import '../widgets/government_schemes_widget.dart';
 import '../widgets/language_selector_widget.dart';
 import '../screens/weather_screen.dart';
 import '../screens/market_screen.dart';
+import '../l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -38,6 +39,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    
     return Scaffold(
       body: DefaultTabController(
         length: 6,
@@ -58,13 +61,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   ),
                 ],
                 flexibleSpace: FlexibleSpaceBar(
-                  title: Text(
-                    ' ',
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                    ),
-                  ),
                   background: Container(
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
@@ -88,13 +84,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ),
                 bottom: TabBar(
                   controller: _tabController,
-                  tabs: const [
-                    Tab(icon: Icon(Icons.dashboard), text: 'Dashboard'),
-                    Tab(icon: Icon(FontAwesomeIcons.chartLine), text: 'Monitor'),
-                    Tab(icon: Icon(FontAwesomeIcons.brain), text: 'Predict'),
-                    Tab(icon: Icon(FontAwesomeIcons.cloudSun), text: 'Weather'),
-                    Tab(icon: Icon(FontAwesomeIcons.store), text: 'Market'),
-                    Tab(icon: Icon(FontAwesomeIcons.landmark), text: 'Schemes'),
+                  tabs: [
+                    Tab(icon: const Icon(Icons.dashboard), text: l10n?.dashboard ?? 'Dashboard'),
+                    Tab(icon: const Icon(FontAwesomeIcons.chartLine), text: l10n?.sensors ?? 'Monitor'),
+                    Tab(icon: const Icon(FontAwesomeIcons.brain), text: l10n?.predictedCrop ?? 'Predict'),
+                    Tab(icon: const Icon(FontAwesomeIcons.cloudSun), text: l10n?.weather ?? 'Weather'),
+                    Tab(icon: const Icon(FontAwesomeIcons.store), text: l10n?.market ?? 'Market'),
+                    Tab(icon: const Icon(FontAwesomeIcons.landmark), text: l10n?.schemes ?? 'Schemes'),
                   ],
                   isScrollable: true,
                   indicatorColor: Colors.white,
@@ -129,7 +125,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         children: [
           _buildWelcomeCard(context),
           const SizedBox(height: 20),
-          _buildQuickStatsRow(context),
           const SizedBox(height: 20),
           _buildFeaturesGrid(context),
           const SizedBox(height: 20),
@@ -139,6 +134,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 
   Widget _buildWelcomeCard(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    
     return Consumer<SensorDataProvider>(
       builder: (context, sensorProvider, child) {
         final currentData = sensorProvider.currentData;
@@ -165,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     const Icon(FontAwesomeIcons.seedling, color: Colors.white, size: 30),
                     const SizedBox(width: 10),
                     Text(
-                      'Dashboard',
+                      l10n?.goodMorning ?? 'Good Morning, Farmer!',
                       style: GoogleFonts.roboto(
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
@@ -176,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  'Monitor your sensors and get AI-powered crop predictions',
+                  l10n?.farmStatus ?? 'Your farm is looking great today. Check your sensors and get AI-powered recommendations.',
                   style: GoogleFonts.roboto(
                     fontSize: 14,
                     color: Colors.white.withOpacity(0.9),
@@ -187,15 +184,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      _buildQuickStat('🌡️', '${currentData.temperature.toStringAsFixed(1)}°C', 'Temperature'),
-                      _buildQuickStat('💧', '${currentData.humidity.toStringAsFixed(1)}%', 'Humidity'),
+                      _buildQuickStat('🌡️', '${currentData.temperature.toStringAsFixed(1)}°C', l10n?.temperature ?? 'Temperature'),
+                      _buildQuickStat('💧', '${currentData.humidity.toStringAsFixed(1)}%', l10n?.humidity ?? 'Humidity'),
                       _buildQuickStat('🌱', currentData.ph.toStringAsFixed(1), 'Soil pH'),
                     ],
                   )
                 else
                   Center(
                     child: Text(
-                      'Connect ESP32 sensors to start monitoring',
+                      l10n?.connectESP32 ?? 'Connect ESP32 sensors to start monitoring',
                       style: GoogleFonts.roboto(
                         color: Colors.white.withOpacity(0.8),
                         fontSize: 14,
@@ -234,64 +231,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildQuickStatsRow(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(child: _buildStatCard('📊', 'Monitor', 'Live Sensors', Colors.blue, 1)),
-        const SizedBox(width: 12),
-        Expanded(child: _buildStatCard('🧠', 'Predict', 'AI Crops', Colors.purple, 2)),
-        const SizedBox(width: 12),
-        Expanded(child: _buildStatCard('🌤️', 'Weather', 'Forecast', Colors.orange, 3)),
-      ],
-    );
-  }
-
-  Widget _buildStatCard(String icon, String action, String subject, Color color, int tabIndex) {
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: InkWell(
-        onTap: () => _tabController.animateTo(tabIndex),
-        borderRadius: BorderRadius.circular(12),
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: color.withOpacity(0.1),
-          ),
-          child: Column(
-            children: [
-              Text(icon, style: const TextStyle(fontSize: 24)),
-              const SizedBox(height: 8),
-              Text(
-                action,
-                style: GoogleFonts.roboto(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: color,
-                ),
-              ),
-              Text(
-                subject,
-                style: GoogleFonts.roboto(
-                  fontSize: 12,
-                  color: Colors.grey[600],
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
   Widget _buildFeaturesGrid(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final features = [
-      {'icon': FontAwesomeIcons.chartLine, 'title': 'Monitor', 'subtitle': 'Live Sensor Data', 'color': const Color(0xFF2196F3), 'tab': 1},
-      {'icon': FontAwesomeIcons.brain, 'title': 'Predict', 'subtitle': 'AI Recommendations', 'color': const Color(0xFF9C27B0), 'tab': 2},
-      {'icon': FontAwesomeIcons.cloudSun, 'title': 'Weather', 'subtitle': 'Weather Forecast', 'color': const Color(0xFFFF9800), 'tab': 3},
-      {'icon': FontAwesomeIcons.store, 'title': 'Market', 'subtitle': 'Price Tracker', 'color': const Color(0xFF4CAF50), 'tab': 4},
+      {'icon': FontAwesomeIcons.chartLine, 'title': l10n?.monitor ?? 'Monitor', 'subtitle': l10n?.liveSensorData ?? 'Live Sensor Data', 'color': const Color(0xFF2196F3), 'tab': 1},
+      {'icon': FontAwesomeIcons.brain, 'title': l10n?.predict ?? 'Predict', 'subtitle': l10n?.aiRecommendations ?? 'AI Recommendations', 'color': const Color(0xFF9C27B0), 'tab': 2},
+      {'icon': FontAwesomeIcons.cloudSun, 'title': l10n?.weather ?? 'Weather', 'subtitle': l10n?.weatherForecast ?? 'Weather Forecast', 'color': const Color(0xFFFF9800), 'tab': 3},
+      {'icon': FontAwesomeIcons.store, 'title': l10n?.market ?? 'Market', 'subtitle': l10n?.priceTracker ?? 'Price Tracker', 'color': const Color(0xFF4CAF50), 'tab': 4},
     ];
 
     return GridView.builder(
@@ -299,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 1.2,
+        childAspectRatio: 1.1,
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
       ),
@@ -315,7 +261,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             },
             borderRadius: BorderRadius.circular(16),
             child: Container(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 gradient: LinearGradient(
@@ -329,30 +275,35 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(
                     feature['icon'] as IconData,
-                    size: 40,
+                    size: 36,
                     color: feature['color'] as Color,
                   ),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 10),
                   Text(
                     feature['title'] as String,
                     style: GoogleFonts.poppins(
-                      fontSize: 16,
+                      fontSize: 15,
                       fontWeight: FontWeight.w600,
                       color: Colors.grey[800],
                     ),
                     textAlign: TextAlign.center,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 3),
                   Text(
                     feature['subtitle'] as String,
                     style: GoogleFonts.roboto(
-                      fontSize: 12,
+                      fontSize: 11,
                       color: Colors.grey[600],
                     ),
                     textAlign: TextAlign.center,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),

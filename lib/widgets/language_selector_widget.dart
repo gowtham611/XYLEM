@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/language_provider.dart';
+import '../l10n/app_localizations.dart';
 
 class LanguageSelectorWidget extends StatelessWidget {
   const LanguageSelectorWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    
     return Consumer<LanguageProvider>(
       builder: (context, languageProvider, child) {
         return Container(
@@ -15,7 +18,7 @@ class LanguageSelectorWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Select Language',
+                l10n?.selectLanguage ?? 'Select Language',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: 20),
