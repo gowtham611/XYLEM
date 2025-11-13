@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../providers/sensor_data_provider.dart';
+import '../l10n/app_localizations.dart';
 
 class ESP32ConnectionWidget extends StatefulWidget {
   const ESP32ConnectionWidget({super.key});
@@ -17,6 +18,8 @@ class _ESP32ConnectionWidgetState extends State<ESP32ConnectionWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    
     return Consumer<SensorDataProvider>(
       builder: (context, provider, child) {
         return Card(
@@ -36,7 +39,7 @@ class _ESP32ConnectionWidgetState extends State<ESP32ConnectionWidget> {
                     ),
                     const SizedBox(width: 8),
                     Text(
-                      'Sensor Connection',
+                      l10n?.sensorConnection ?? 'Sensor Connection',
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,

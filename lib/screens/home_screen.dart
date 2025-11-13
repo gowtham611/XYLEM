@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../providers/sensor_data_provider.dart';
 import '../providers/govt_schemes_provider.dart';
-import '../providers/language_provider.dart';
 import '../providers/weather_provider.dart';
 import '../providers/market_provider.dart';
 import '../screens/monitoring_screen.dart';

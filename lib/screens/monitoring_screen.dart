@@ -5,32 +5,35 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../providers/sensor_data_provider.dart';
 import '../widgets/esp32_connection_widget.dart';
 import '../widgets/sensor_charts_widget.dart';
+import '../l10n/app_localizations.dart';
 
 class MonitoringScreen extends StatelessWidget {
   const MonitoringScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    
     return Consumer<SensorDataProvider>(
       builder: (context, provider, child) {
         return SingleChildScrollView(
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              _buildMonitoringHeader(),
+              _buildMonitoringHeader(l10n),
               const SizedBox(height: 16),
               const ESP32ConnectionWidget(),
               const SizedBox(height: 16),
               if (provider.currentData != null) ...[
-                _buildLiveReadingsCard(provider.currentData!),
+                _buildLiveReadingsCard(l10n, provider.currentData!),
                 const SizedBox(height: 16),
-                _buildSensorStatusGrid(provider.currentData!),
+                _buildSensorStatusGrid(l10n, provider.currentData!),
                 const SizedBox(height: 16),
                 const SensorChartsWidget(),
                 const SizedBox(height: 16),
-                _buildDataHistoryCard(provider.dataHistory),
+                _buildDataHistoryCard(l10n, provider.dataHistory),
               ] else ...[
-                _buildNoSensorCard(),
+                _buildNoSensorCard(l10n),
               ],
             ],
           ),
@@ -39,7 +42,7 @@ class MonitoringScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMonitoringHeader() {
+  Widget _buildMonitoringHeader(AppLocalizations? l10n) {
     return Card(
       elevation: 6,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -73,7 +76,7 @@ class MonitoringScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Real-Time Monitoring',
+                    l10n?.realTimeMonitoring ?? 'Real-Time Monitoring',
                     style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -81,7 +84,7 @@ class MonitoringScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Live sensor data from your ESP32 devices',
+                    l10n?.liveSensorDataFromESP32 ?? 'Live sensor data from your ESP32 devices',
                     style: GoogleFonts.roboto(
                       fontSize: 14,
                       color: Colors.white.withOpacity(0.9),
@@ -96,7 +99,7 @@ class MonitoringScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildNoSensorCard() {
+  Widget _buildNoSensorCard(AppLocalizations? l10n) {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -113,7 +116,7 @@ class MonitoringScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                'No Sensor Data',
+                l10n?.noSensorDataAvailable ?? 'No Sensor Data',
                 style: GoogleFonts.poppins(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
@@ -121,7 +124,7 @@ class MonitoringScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                'Connect your ESP32 sensors to start monitoring',
+                l10n?.connectESP32ToStart ?? 'Connect your ESP32 sensors to start monitoring',
                 style: GoogleFonts.roboto(
                   fontSize: 14,
                   color: Colors.grey[500],
@@ -135,7 +138,7 @@ class MonitoringScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildLiveReadingsCard(SensorData data) {
+  Widget _buildLiveReadingsCard(AppLocalizations? l10n, SensorData data) {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -146,10 +149,10 @@ class MonitoringScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                const Icon(FontAwesomeIcons.satellite, color: Colors.green, size: 20), // ✅ Fixed icon
+                const Icon(FontAwesomeIcons.satellite, color: Colors.green, size: 20),
                 const SizedBox(width: 8),
                 Text(
-                  'Live Sensor Readings',
+                  l10n?.liveSensorReadings ?? 'Live Sensor Readings',
                   style: GoogleFonts.poppins(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -176,7 +179,7 @@ class MonitoringScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: 4),
                       Text(
-                        'LIVE',
+                        l10n?.live ?? 'LIVE',
                         style: GoogleFonts.roboto(
                           fontSize: 10,
                           color: Colors.green,
@@ -190,7 +193,7 @@ class MonitoringScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'Last updated: ${_formatTime(data.timestamp)}',
+              '${l10n?.lastUpdated ?? 'Last updated'}: ${_formatTime(data.timestamp)}',
               style: GoogleFonts.roboto(
                 fontSize: 12,
                 color: Colors.grey[600],
@@ -205,13 +208,13 @@ class MonitoringScreen extends StatelessWidget {
               crossAxisSpacing: 8,
               mainAxisSpacing: 8,
               children: [
-                _buildSensorTile('Temperature', '${data.temperature.toStringAsFixed(1)}°C', FontAwesomeIcons.thermometer, Colors.red),
-                _buildSensorTile('Humidity', '${data.humidity.toStringAsFixed(1)}%', FontAwesomeIcons.droplet, Colors.blue),
-                _buildSensorTile('Soil pH', '${data.ph.toStringAsFixed(1)}%', FontAwesomeIcons.seedling, Colors.green),
-                _buildSensorTile('Moisture', '${data.moisture.toStringAsFixed(1)}%', FontAwesomeIcons.water, Colors.teal),
-                _buildSensorTile('Nitrogen', '${data.nitrogen.toStringAsFixed(0)} ppm', FontAwesomeIcons.leaf, Colors.purple),
-                _buildSensorTile('Phosphorus', '${data.phosphorus.toStringAsFixed(0)} ppm', FontAwesomeIcons.seedling, Colors.brown),
-                _buildSensorTile('Potassium', '${data.potassium.toStringAsFixed(0)} ppm', FontAwesomeIcons.seedling, Colors.yellow),
+                _buildSensorTile(l10n, l10n?.temperature ?? 'Temperature', '${data.temperature.toStringAsFixed(1)}°C', FontAwesomeIcons.thermometer, Colors.red),
+                _buildSensorTile(l10n, l10n?.humidity ?? 'Humidity', '${data.humidity.toStringAsFixed(1)}%', FontAwesomeIcons.droplet, Colors.blue),
+                _buildSensorTile(l10n, l10n?.soilPH ?? 'Soil pH', '${data.ph.toStringAsFixed(1)}%', FontAwesomeIcons.seedling, Colors.green),
+                _buildSensorTile(l10n, l10n?.moisture ?? 'Moisture', '${data.moisture.toStringAsFixed(1)}%', FontAwesomeIcons.water, Colors.teal),
+                _buildSensorTile(l10n, l10n?.nitrogen ?? 'Nitrogen', '${data.nitrogen.toStringAsFixed(0)} ppm', FontAwesomeIcons.leaf, Colors.purple),
+                _buildSensorTile(l10n, l10n?.phosphorus ?? 'Phosphorus', '${data.phosphorus.toStringAsFixed(0)} ppm', FontAwesomeIcons.seedling, Colors.brown),
+                _buildSensorTile(l10n, l10n?.potassium ?? 'Potassium', '${data.potassium.toStringAsFixed(0)} ppm', FontAwesomeIcons.seedling, Colors.yellow),
 
               ],
             ),
@@ -221,7 +224,7 @@ class MonitoringScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSensorTile(String label, String value, IconData icon, Color color) {
+  Widget _buildSensorTile(AppLocalizations? l10n, String label, String value, IconData icon, Color color) {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -256,7 +259,7 @@ class MonitoringScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSensorStatusGrid(SensorData data) {
+  Widget _buildSensorStatusGrid(AppLocalizations? l10n, SensorData data) {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -270,7 +273,7 @@ class MonitoringScreen extends StatelessWidget {
                 const Icon(FontAwesomeIcons.gaugeHigh, color: Colors.orange, size: 20),
                 const SizedBox(width: 8),
                 Text(
-                  'Sensor Status Analysis',
+                  l10n?.sensorStatusAnalysis ?? 'Sensor Status Analysis',
                   style: GoogleFonts.poppins(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -279,13 +282,13 @@ class MonitoringScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            _buildStatusItem('Temperature', data.temperature, '°C', 20, 30, Colors.red),
-            _buildStatusItem('Humidity', data.humidity, '%', 50, 70, Colors.blue),
-            _buildStatusItem('Soil pH', data.ph, '', 6.0, 7.5, Colors.green),
-            _buildStatusItem('Soil Moisture', data.moisture, '%', 40, 70, Colors.teal),
-            _buildStatusItem('Nitrogen', data.nitrogen, ' ppm', 30, 100, Colors.purple),
-            _buildStatusItem('Phosphorus', data.phosphorus, ' ppm', 20, 50, Colors.brown),
-            _buildStatusItem('Potassium', data.potassium, ' ppm', 20, 50, Colors.yellow),
+            _buildStatusItem(l10n, l10n?.temperature ?? 'Temperature', data.temperature, '°C', 20, 30, Colors.red),
+            _buildStatusItem(l10n, l10n?.humidity ?? 'Humidity', data.humidity, '%', 50, 70, Colors.blue),
+            _buildStatusItem(l10n, l10n?.soilPH ?? 'Soil pH', data.ph, '', 6.0, 7.5, Colors.green),
+            _buildStatusItem(l10n, l10n?.moisture ?? 'Soil Moisture', data.moisture, '%', 40, 70, Colors.teal),
+            _buildStatusItem(l10n, l10n?.nitrogen ?? 'Nitrogen', data.nitrogen, ' ppm', 30, 100, Colors.purple),
+            _buildStatusItem(l10n, l10n?.phosphorus ?? 'Phosphorus', data.phosphorus, ' ppm', 20, 50, Colors.brown),
+            _buildStatusItem(l10n, l10n?.potassium ?? 'Potassium', data.potassium, ' ppm', 20, 50, Colors.yellow),
 
           ],
         ),
@@ -293,10 +296,10 @@ class MonitoringScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildStatusItem(String name, double value, String unit, double minOptimal, double maxOptimal, Color color) {
+  Widget _buildStatusItem(AppLocalizations? l10n, String name, double value, String unit, double minOptimal, double maxOptimal, Color color) {
     bool isOptimal = value >= minOptimal && value <= maxOptimal;
     Color statusColor = isOptimal ? Colors.green : (value < minOptimal ? Colors.orange : Colors.red);
-    String status = isOptimal ? 'OPTIMAL' : (value < minOptimal ? 'LOW' : 'HIGH');
+    String status = isOptimal ? (l10n?.optimal ?? 'OPTIMAL') : (value < minOptimal ? (l10n?.low ?? 'LOW') : (l10n?.high ?? 'HIGH'));
     double percentage = ((value - minOptimal) / (maxOptimal - minOptimal)).clamp(0.0, 1.0);
     
     return Padding(
@@ -364,7 +367,7 @@ class MonitoringScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                'Optimal Range',
+                l10n?.optimalRange ?? 'Optimal Range',
                 style: GoogleFonts.roboto(
                   fontSize: 10,
                   color: Colors.grey[500],
@@ -384,7 +387,7 @@ class MonitoringScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildDataHistoryCard(List<SensorData> history) {
+  Widget _buildDataHistoryCard(AppLocalizations? l10n, List<SensorData> history) {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -398,7 +401,7 @@ class MonitoringScreen extends StatelessWidget {
                 const Icon(FontAwesomeIcons.clockRotateLeft, color: Colors.indigo, size: 20),
                 const SizedBox(width: 8),
                 Text(
-                  'Recent Data Log',
+                  l10n?.recentDataLog ?? 'Recent Data Log',
                   style: GoogleFonts.poppins(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -406,7 +409,7 @@ class MonitoringScreen extends StatelessWidget {
                 ),
                 const Spacer(),
                 Text(
-                  '${history.length} readings',
+                  '${history.length} ${l10n?.readings ?? 'readings'}',
                   style: GoogleFonts.roboto(
                     fontSize: 12,
                     color: Colors.grey[600],
@@ -483,8 +486,8 @@ class MonitoringScreen extends StatelessWidget {
 
   String _formatTimeAgo(DateTime time) {
     final diff = DateTime.now().difference(time);
-    if (diff.inMinutes < 1) return '${diff.inSeconds}s ago';
-    if (diff.inHours < 1) return '${diff.inMinutes}m ago';
-    return '${diff.inHours}h ago';
+    if (diff.inMinutes < 1) return '${diff.inSeconds}s';
+    if (diff.inHours < 1) return '${diff.inMinutes}m';
+    return '${diff.inHours}h';
   }
 }

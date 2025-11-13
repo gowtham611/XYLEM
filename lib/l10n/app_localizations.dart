@@ -385,6 +385,1002 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Price Tracker'**
   String get priceTracker;
+
+  /// No description provided for @realTimeMonitoring.
+  ///
+  /// In en, this message translates to:
+  /// **'Real-Time Monitoring'**
+  String get realTimeMonitoring;
+
+  /// No description provided for @liveSensorDataFromESP32.
+  ///
+  /// In en, this message translates to:
+  /// **'Live sensor data from your ESP32 devices'**
+  String get liveSensorDataFromESP32;
+
+  /// No description provided for @noSensorDataAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No Sensor Data'**
+  String get noSensorDataAvailable;
+
+  /// No description provided for @connectESP32ToStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect your ESP32 sensors to start monitoring'**
+  String get connectESP32ToStart;
+
+  /// No description provided for @liveSensorReadings.
+  ///
+  /// In en, this message translates to:
+  /// **'Live Sensor Readings'**
+  String get liveSensorReadings;
+
+  /// No description provided for @live.
+  ///
+  /// In en, this message translates to:
+  /// **'LIVE'**
+  String get live;
+
+  /// No description provided for @soilPH.
+  ///
+  /// In en, this message translates to:
+  /// **'Soil pH'**
+  String get soilPH;
+
+  /// No description provided for @moisture.
+  ///
+  /// In en, this message translates to:
+  /// **'Moisture'**
+  String get moisture;
+
+  /// No description provided for @nitrogen.
+  ///
+  /// In en, this message translates to:
+  /// **'Nitrogen'**
+  String get nitrogen;
+
+  /// No description provided for @phosphorus.
+  ///
+  /// In en, this message translates to:
+  /// **'Phosphorus'**
+  String get phosphorus;
+
+  /// No description provided for @potassium.
+  ///
+  /// In en, this message translates to:
+  /// **'Potassium'**
+  String get potassium;
+
+  /// No description provided for @sensorStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Sensor Status'**
+  String get sensorStatus;
+
+  /// No description provided for @dataHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Data History'**
+  String get dataHistory;
+
+  /// No description provided for @last24Hours.
+  ///
+  /// In en, this message translates to:
+  /// **'Last 24 Hours'**
+  String get last24Hours;
+
+  /// No description provided for @noHistoryData.
+  ///
+  /// In en, this message translates to:
+  /// **'No history data available'**
+  String get noHistoryData;
+
+  /// No description provided for @sensorStatusAnalysis.
+  ///
+  /// In en, this message translates to:
+  /// **'Sensor Status Analysis'**
+  String get sensorStatusAnalysis;
+
+  /// No description provided for @optimal.
+  ///
+  /// In en, this message translates to:
+  /// **'OPTIMAL'**
+  String get optimal;
+
+  /// No description provided for @optimalRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Optimal Range'**
+  String get optimalRange;
+
+  /// No description provided for @recentDataLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Data Log'**
+  String get recentDataLog;
+
+  /// No description provided for @readings.
+  ///
+  /// In en, this message translates to:
+  /// **'readings'**
+  String get readings;
+
+  /// No description provided for @secondsAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'s ago'**
+  String get secondsAgo;
+
+  /// No description provided for @minutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'m ago'**
+  String get minutesAgo;
+
+  /// No description provided for @hoursAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'h ago'**
+  String get hoursAgo;
+
+  /// No description provided for @prices.
+  ///
+  /// In en, this message translates to:
+  /// **'Prices'**
+  String get prices;
+
+  /// No description provided for @trending.
+  ///
+  /// In en, this message translates to:
+  /// **'Trending'**
+  String get trending;
+
+  /// No description provided for @news.
+  ///
+  /// In en, this message translates to:
+  /// **'News'**
+  String get news;
+
+  /// No description provided for @loadingMarketData.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading market data...'**
+  String get loadingMarketData;
+
+  /// No description provided for @marketSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Market Summary'**
+  String get marketSummary;
+
+  /// No description provided for @rising.
+  ///
+  /// In en, this message translates to:
+  /// **'Rising'**
+  String get rising;
+
+  /// No description provided for @falling.
+  ///
+  /// In en, this message translates to:
+  /// **'Falling'**
+  String get falling;
+
+  /// No description provided for @stable.
+  ///
+  /// In en, this message translates to:
+  /// **'Stable'**
+  String get stable;
+
+  /// No description provided for @lastUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last updated'**
+  String get lastUpdated;
+
+  /// No description provided for @currentPrices.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Prices'**
+  String get currentPrices;
+
+  /// No description provided for @perKg.
+  ///
+  /// In en, this message translates to:
+  /// **'per kg'**
+  String get perKg;
+
+  /// No description provided for @priceChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Price Change'**
+  String get priceChange;
+
+  /// No description provided for @trendingCrops.
+  ///
+  /// In en, this message translates to:
+  /// **'Trending Crops'**
+  String get trendingCrops;
+
+  /// No description provided for @highDemand.
+  ///
+  /// In en, this message translates to:
+  /// **'High Demand'**
+  String get highDemand;
+
+  /// No description provided for @priceIncreasing.
+  ///
+  /// In en, this message translates to:
+  /// **'Price Increasing'**
+  String get priceIncreasing;
+
+  /// No description provided for @seasonalCrop.
+  ///
+  /// In en, this message translates to:
+  /// **'Seasonal Crop'**
+  String get seasonalCrop;
+
+  /// No description provided for @marketNews.
+  ///
+  /// In en, this message translates to:
+  /// **'Market News'**
+  String get marketNews;
+
+  /// No description provided for @readMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Read More'**
+  String get readMore;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// No description provided for @marketError.
+  ///
+  /// In en, this message translates to:
+  /// **'Market Error'**
+  String get marketError;
+
+  /// No description provided for @loadingWeatherData.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading weather data...'**
+  String get loadingWeatherData;
+
+  /// No description provided for @weatherError.
+  ///
+  /// In en, this message translates to:
+  /// **'Weather Error'**
+  String get weatherError;
+
+  /// No description provided for @noWeatherData.
+  ///
+  /// In en, this message translates to:
+  /// **'No Weather Data'**
+  String get noWeatherData;
+
+  /// No description provided for @weatherDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Weather Details'**
+  String get weatherDetails;
+
+  /// No description provided for @windSpeed.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind Speed'**
+  String get windSpeed;
+
+  /// No description provided for @visibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Visibility'**
+  String get visibility;
+
+  /// No description provided for @feelsLike.
+  ///
+  /// In en, this message translates to:
+  /// **'Feels Like'**
+  String get feelsLike;
+
+  /// No description provided for @farmingRecommendations.
+  ///
+  /// In en, this message translates to:
+  /// **'Farming Recommendations'**
+  String get farmingRecommendations;
+
+  /// No description provided for @updatedAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated'**
+  String get updatedAt;
+
+  /// No description provided for @aiCropAdvisor.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Crop Advisor'**
+  String get aiCropAdvisor;
+
+  /// No description provided for @intelligentCropPrediction.
+  ///
+  /// In en, this message translates to:
+  /// **'Intelligent crop prediction & recommendations'**
+  String get intelligentCropPrediction;
+
+  /// No description provided for @checkOnnxRuntime.
+  ///
+  /// In en, this message translates to:
+  /// **'Check ONNX Runtime'**
+  String get checkOnnxRuntime;
+
+  /// No description provided for @runAIPrediction.
+  ///
+  /// In en, this message translates to:
+  /// **'Run AI Prediction'**
+  String get runAIPrediction;
+
+  /// No description provided for @running.
+  ///
+  /// In en, this message translates to:
+  /// **'Running...'**
+  String get running;
+
+  /// No description provided for @simulate.
+  ///
+  /// In en, this message translates to:
+  /// **'Simulate'**
+  String get simulate;
+
+  /// No description provided for @noPredictionsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No predictions yet'**
+  String get noPredictionsYet;
+
+  /// No description provided for @noPredictionData.
+  ///
+  /// In en, this message translates to:
+  /// **'No Prediction Data'**
+  String get noPredictionData;
+
+  /// No description provided for @connectSensorsOrSimulate.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect sensors or start simulation to get predictions'**
+  String get connectSensorsOrSimulate;
+
+  /// No description provided for @suitability.
+  ///
+  /// In en, this message translates to:
+  /// **'Suitability'**
+  String get suitability;
+
+  /// No description provided for @soilQuality.
+  ///
+  /// In en, this message translates to:
+  /// **'Soil Quality'**
+  String get soilQuality;
+
+  /// No description provided for @growthPotential.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth Potential'**
+  String get growthPotential;
+
+  /// No description provided for @riskLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Risk Level'**
+  String get riskLevel;
+
+  /// No description provided for @seasonMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Season Match'**
+  String get seasonMatch;
+
+  /// No description provided for @excellent.
+  ///
+  /// In en, this message translates to:
+  /// **'Excellent'**
+  String get excellent;
+
+  /// No description provided for @good.
+  ///
+  /// In en, this message translates to:
+  /// **'Good'**
+  String get good;
+
+  /// No description provided for @fair.
+  ///
+  /// In en, this message translates to:
+  /// **'Fair'**
+  String get fair;
+
+  /// No description provided for @veryHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'Very High'**
+  String get veryHigh;
+
+  /// No description provided for @high.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get high;
+
+  /// No description provided for @moderate.
+  ///
+  /// In en, this message translates to:
+  /// **'Moderate'**
+  String get moderate;
+
+  /// No description provided for @medium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get medium;
+
+  /// No description provided for @low.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get low;
+
+  /// No description provided for @tomatoes.
+  ///
+  /// In en, this message translates to:
+  /// **'Tomatoes'**
+  String get tomatoes;
+
+  /// No description provided for @potatoes.
+  ///
+  /// In en, this message translates to:
+  /// **'Potatoes'**
+  String get potatoes;
+
+  /// No description provided for @leafyGreens.
+  ///
+  /// In en, this message translates to:
+  /// **'Leafy Greens'**
+  String get leafyGreens;
+
+  /// No description provided for @peppers.
+  ///
+  /// In en, this message translates to:
+  /// **'Peppers'**
+  String get peppers;
+
+  /// No description provided for @legumes.
+  ///
+  /// In en, this message translates to:
+  /// **'Legumes'**
+  String get legumes;
+
+  /// No description provided for @herbs.
+  ///
+  /// In en, this message translates to:
+  /// **'Herbs'**
+  String get herbs;
+
+  /// No description provided for @optimalPHHighNitrogen.
+  ///
+  /// In en, this message translates to:
+  /// **'Optimal pH and high nitrogen levels'**
+  String get optimalPHHighNitrogen;
+
+  /// No description provided for @goodPHPhosphorus.
+  ///
+  /// In en, this message translates to:
+  /// **'Good pH and phosphorus levels'**
+  String get goodPHPhosphorus;
+
+  /// No description provided for @highNitrogenMoisture.
+  ///
+  /// In en, this message translates to:
+  /// **'High nitrogen and moisture content'**
+  String get highNitrogenMoisture;
+
+  /// No description provided for @goodPHPotassium.
+  ///
+  /// In en, this message translates to:
+  /// **'Good pH and potassium levels'**
+  String get goodPHPotassium;
+
+  /// No description provided for @nitrogenFixers.
+  ///
+  /// In en, this message translates to:
+  /// **'Nitrogen fixers, improve soil quality'**
+  String get nitrogenFixers;
+
+  /// No description provided for @adaptableToSoil.
+  ///
+  /// In en, this message translates to:
+  /// **'Adaptable to various soil conditions'**
+  String get adaptableToSoil;
+
+  /// No description provided for @governmentSchemesScreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Government Schemes Screen'**
+  String get governmentSchemesScreen;
+
+  /// No description provided for @sensorConnection.
+  ///
+  /// In en, this message translates to:
+  /// **'Sensor Connection'**
+  String get sensorConnection;
+
+  /// No description provided for @status.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get status;
+
+  /// No description provided for @dataPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Data Points'**
+  String get dataPoints;
+
+  /// No description provided for @rate.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate'**
+  String get rate;
+
+  /// No description provided for @connectToESP32ForRealData.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect to ESP32 for real sensor data:'**
+  String get connectToESP32ForRealData;
+
+  /// No description provided for @esp32IPAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'ESP32 IP Address'**
+  String get esp32IPAddress;
+
+  /// No description provided for @port.
+  ///
+  /// In en, this message translates to:
+  /// **'Port'**
+  String get port;
+
+  /// No description provided for @connectToESP32Button.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect to ESP32'**
+  String get connectToESP32Button;
+
+  /// No description provided for @useTestData.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Test Data'**
+  String get useTestData;
+
+  /// No description provided for @testDataModeActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Test Data Mode Active'**
+  String get testDataModeActive;
+
+  /// No description provided for @stopTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop Test'**
+  String get stopTest;
+
+  /// No description provided for @usingSimulatedData.
+  ///
+  /// In en, this message translates to:
+  /// **'Using simulated sensor data for testing purposes.'**
+  String get usingSimulatedData;
+
+  /// No description provided for @esp32Connected.
+  ///
+  /// In en, this message translates to:
+  /// **'ESP32 Connected'**
+  String get esp32Connected;
+
+  /// No description provided for @disconnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Disconnect'**
+  String get disconnect;
+
+  /// No description provided for @receivingLiveData.
+  ///
+  /// In en, this message translates to:
+  /// **'Receiving live data from ESP32 every 3 seconds.'**
+  String get receivingLiveData;
+
+  /// No description provided for @connectingToESP32.
+  ///
+  /// In en, this message translates to:
+  /// **'Connecting to ESP32...'**
+  String get connectingToESP32;
+
+  /// No description provided for @connectionError.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection Error:'**
+  String get connectionError;
+
+  /// No description provided for @latestSensorReading.
+  ///
+  /// In en, this message translates to:
+  /// **'Latest Sensor Reading:'**
+  String get latestSensorReading;
+
+  /// No description provided for @simulationModeActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Simulation Mode Active'**
+  String get simulationModeActive;
+
+  /// No description provided for @refresh.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh'**
+  String get refresh;
+
+  /// No description provided for @aiCropAdvisorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Crop Advisor'**
+  String get aiCropAdvisorTitle;
+
+  /// No description provided for @smartCropPredictions.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart crop predictions · Soil insights · Farming tips'**
+  String get smartCropPredictions;
+
+  /// No description provided for @runningDots.
+  ///
+  /// In en, this message translates to:
+  /// **'Running...'**
+  String get runningDots;
+
+  /// No description provided for @runAIPredictionButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Run AI Prediction'**
+  String get runAIPredictionButton;
+
+  /// No description provided for @simulateButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Simulate'**
+  String get simulateButton;
+
+  /// No description provided for @noPredictionsYetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No predictions yet'**
+  String get noPredictionsYetTitle;
+
+  /// No description provided for @runAIPredictionToSeeResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Run the AI prediction to see results'**
+  String get runAIPredictionToSeeResults;
+
+  /// No description provided for @predictionError.
+  ///
+  /// In en, this message translates to:
+  /// **'Prediction error:'**
+  String get predictionError;
+
+  /// No description provided for @noPredictionDataTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No Prediction Data'**
+  String get noPredictionDataTitle;
+
+  /// No description provided for @connectSensorsOrStartSimulation.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect sensors or start simulation to get predictions'**
+  String get connectSensorsOrStartSimulation;
+
+  /// No description provided for @startingDots.
+  ///
+  /// In en, this message translates to:
+  /// **'Starting...'**
+  String get startingDots;
+
+  /// No description provided for @simulateAndRun.
+  ///
+  /// In en, this message translates to:
+  /// **'Simulate & Run'**
+  String get simulateAndRun;
+
+  /// No description provided for @recommendedCropsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended Crops'**
+  String get recommendedCropsTitle;
+
+  /// No description provided for @modelRecommendationSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Model recommendation'**
+  String get modelRecommendationSubtitle;
+
+  /// No description provided for @confidenceLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Confidence'**
+  String get confidenceLabel;
+
+  /// No description provided for @topAlternatives.
+  ///
+  /// In en, this message translates to:
+  /// **'Top alternatives'**
+  String get topAlternatives;
+
+  /// No description provided for @soilLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Soil'**
+  String get soilLabel;
+
+  /// No description provided for @issuesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'issues'**
+  String get issuesLabel;
+
+  /// No description provided for @tipsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips'**
+  String get tipsLabel;
+
+  /// No description provided for @primaryLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Primary'**
+  String get primaryLabel;
+
+  /// No description provided for @advisoryLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Advisory'**
+  String get advisoryLabel;
+
+  /// No description provided for @viewSoilRecommendationsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'View soil recommendations'**
+  String get viewSoilRecommendationsTitle;
+
+  /// No description provided for @noMajorSoilIssues.
+  ///
+  /// In en, this message translates to:
+  /// **'No major soil issues detected.'**
+  String get noMajorSoilIssues;
+
+  /// No description provided for @optimalPHHighNitrogenReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Optimal pH and high nitrogen levels'**
+  String get optimalPHHighNitrogenReason;
+
+  /// No description provided for @goodPHPhosphorusReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Good pH and phosphorus levels'**
+  String get goodPHPhosphorusReason;
+
+  /// No description provided for @highNitrogenMoistureReason.
+  ///
+  /// In en, this message translates to:
+  /// **'High nitrogen and moisture content'**
+  String get highNitrogenMoistureReason;
+
+  /// No description provided for @goodPHPotassiumReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Good pH and potassium levels'**
+  String get goodPHPotassiumReason;
+
+  /// No description provided for @nitrogenFixersReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Nitrogen fixers, improve soil quality'**
+  String get nitrogenFixersReason;
+
+  /// No description provided for @adaptableToSoilReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Adaptable to various soil conditions'**
+  String get adaptableToSoilReason;
+
+  /// No description provided for @cropTomatoes.
+  ///
+  /// In en, this message translates to:
+  /// **'Tomatoes'**
+  String get cropTomatoes;
+
+  /// No description provided for @cropPotatoes.
+  ///
+  /// In en, this message translates to:
+  /// **'Potatoes'**
+  String get cropPotatoes;
+
+  /// No description provided for @cropLeafyGreens.
+  ///
+  /// In en, this message translates to:
+  /// **'Leafy Greens'**
+  String get cropLeafyGreens;
+
+  /// No description provided for @cropPeppers.
+  ///
+  /// In en, this message translates to:
+  /// **'Peppers'**
+  String get cropPeppers;
+
+  /// No description provided for @cropLegumes.
+  ///
+  /// In en, this message translates to:
+  /// **'Legumes'**
+  String get cropLegumes;
+
+  /// No description provided for @cropHerbs.
+  ///
+  /// In en, this message translates to:
+  /// **'Herbs'**
+  String get cropHerbs;
+
+  /// No description provided for @cropRice.
+  ///
+  /// In en, this message translates to:
+  /// **'Rice'**
+  String get cropRice;
+
+  /// No description provided for @cropMaize.
+  ///
+  /// In en, this message translates to:
+  /// **'Maize'**
+  String get cropMaize;
+
+  /// No description provided for @cropChickpea.
+  ///
+  /// In en, this message translates to:
+  /// **'Chickpea'**
+  String get cropChickpea;
+
+  /// No description provided for @cropKidneybeans.
+  ///
+  /// In en, this message translates to:
+  /// **'Kidney Beans'**
+  String get cropKidneybeans;
+
+  /// No description provided for @cropPigeonpeas.
+  ///
+  /// In en, this message translates to:
+  /// **'Pigeon Peas'**
+  String get cropPigeonpeas;
+
+  /// No description provided for @cropMothbeans.
+  ///
+  /// In en, this message translates to:
+  /// **'Moth Beans'**
+  String get cropMothbeans;
+
+  /// No description provided for @cropMungbean.
+  ///
+  /// In en, this message translates to:
+  /// **'Mung Bean'**
+  String get cropMungbean;
+
+  /// No description provided for @cropBlackgram.
+  ///
+  /// In en, this message translates to:
+  /// **'Black Gram'**
+  String get cropBlackgram;
+
+  /// No description provided for @cropLentil.
+  ///
+  /// In en, this message translates to:
+  /// **'Lentil'**
+  String get cropLentil;
+
+  /// No description provided for @cropPomegranate.
+  ///
+  /// In en, this message translates to:
+  /// **'Pomegranate'**
+  String get cropPomegranate;
+
+  /// No description provided for @cropBanana.
+  ///
+  /// In en, this message translates to:
+  /// **'Banana'**
+  String get cropBanana;
+
+  /// No description provided for @cropMango.
+  ///
+  /// In en, this message translates to:
+  /// **'Mango'**
+  String get cropMango;
+
+  /// No description provided for @cropGrapes.
+  ///
+  /// In en, this message translates to:
+  /// **'Grapes'**
+  String get cropGrapes;
+
+  /// No description provided for @cropWatermelon.
+  ///
+  /// In en, this message translates to:
+  /// **'Watermelon'**
+  String get cropWatermelon;
+
+  /// No description provided for @cropMuskmelon.
+  ///
+  /// In en, this message translates to:
+  /// **'Muskmelon'**
+  String get cropMuskmelon;
+
+  /// No description provided for @cropApple.
+  ///
+  /// In en, this message translates to:
+  /// **'Apple'**
+  String get cropApple;
+
+  /// No description provided for @cropOrange.
+  ///
+  /// In en, this message translates to:
+  /// **'Orange'**
+  String get cropOrange;
+
+  /// No description provided for @cropPapaya.
+  ///
+  /// In en, this message translates to:
+  /// **'Papaya'**
+  String get cropPapaya;
+
+  /// No description provided for @cropCoconut.
+  ///
+  /// In en, this message translates to:
+  /// **'Coconut'**
+  String get cropCoconut;
+
+  /// No description provided for @cropCotton.
+  ///
+  /// In en, this message translates to:
+  /// **'Cotton'**
+  String get cropCotton;
+
+  /// No description provided for @cropJute.
+  ///
+  /// In en, this message translates to:
+  /// **'Jute'**
+  String get cropJute;
+
+  /// No description provided for @cropCoffee.
+  ///
+  /// In en, this message translates to:
+  /// **'Coffee'**
+  String get cropCoffee;
+
+  /// No description provided for @soil.
+  ///
+  /// In en, this message translates to:
+  /// **'Soil'**
+  String get soil;
+
+  /// No description provided for @overall.
+  ///
+  /// In en, this message translates to:
+  /// **'Overall'**
+  String get overall;
 }
 
 class _AppLocalizationsDelegate
