@@ -135,4 +135,22 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get kannada => 'ಕನ್ನಡ';
+
+  @override
+  String get monitor => 'ಮಾನಿಟರ್';
+
+  @override
+  String get liveSensorData => 'ನೇರ ಸಂವೇದಕ ಡೇಟಾ';
+
+  @override
+  String get predict => 'ಭವಿಷ್ಯ';
+
+  @override
+  String get aiRecommendations => 'AI ಶಿಫಾರಸುಗಳು';
+
+  @override
+  String get weatherForecast => 'ಹವಾಮಾನ ಮುನ್ಸೂಚನೆ';
+
+  @override
+  String get priceTracker => 'ಬೆಲೆ ಟ್ರ್ಯಾಕರ್';
 }

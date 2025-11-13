@@ -40,5 +40,11 @@
   "language": "ಭಾಷೆ",
   "selectLanguage": "ಭಾಷೆ ಆಯ್ಕೆಮಾಡಿ",
   "english": "English",
-  "kannada": "ಕನ್ನಡ"
+  "kannada": "ಕನ್ನಡ",
+  "monitor": "ಮಾನಿಟರ್",
+  "liveSensorData": "ನೇರ ಸಂವೇದಕ ಡೇಟಾ",
+  "predict": "ಭವಿಷ್ಯ",
+  "aiRecommendations": "AI ಶಿಫಾರಸುಗಳು",
+  "weatherForecast": "ಹವಾಮಾನ ಮುನ್ಸೂಚನೆ",
+  "priceTracker": "ಬೆಲೆ ಟ್ರ್ಯಾಕರ್"
 }
