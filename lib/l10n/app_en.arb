@@ -40,5 +40,11 @@
   "language": "Language",
   "selectLanguage": "Select Language",
   "english": "English",
-  "kannada": "ಕನ್ನಡ"
+  "kannada": "ಕನ್ನಡ",
+  "monitor": "Monitor",
+  "liveSensorData": "Live Sensor Data",
+  "predict": "Predict",
+  "aiRecommendations": "AI Recommendations",
+  "weatherForecast": "Weather Forecast",
+  "priceTracker": "Price Tracker"
 }

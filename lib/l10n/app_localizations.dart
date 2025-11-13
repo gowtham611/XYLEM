@@ -349,6 +349,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'ಕನ್ನಡ'**
   String get kannada;
+
+  /// No description provided for @monitor.
+  ///
+  /// In en, this message translates to:
+  /// **'Monitor'**
+  String get monitor;
+
+  /// No description provided for @liveSensorData.
+  ///
+  /// In en, this message translates to:
+  /// **'Live Sensor Data'**
+  String get liveSensorData;
+
+  /// No description provided for @predict.
+  ///
+  /// In en, this message translates to:
+  /// **'Predict'**
+  String get predict;
+
+  /// No description provided for @aiRecommendations.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Recommendations'**
+  String get aiRecommendations;
+
+  /// No description provided for @weatherForecast.
+  ///
+  /// In en, this message translates to:
+  /// **'Weather Forecast'**
+  String get weatherForecast;
+
+  /// No description provided for @priceTracker.
+  ///
+  /// In en, this message translates to:
+  /// **'Price Tracker'**
+  String get priceTracker;
 }
 
 class _AppLocalizationsDelegate
