@@ -555,8 +555,8 @@ class SensorDataProvider with ChangeNotifier {
         _apiRainfallMm = rainDaily;
         _apiRainfallFetchedAt = DateTime.now();
         if (kDebugMode) {
-          print('🌧️ OpenWeather rainfall updated: ${_apiRainfallMm} mm '
-              '(source=${rainfallSource})');
+          print('🌧️ OpenWeather rainfall updated: $_apiRainfallMm mm '
+              '(source=$rainfallSource)');
         }
         notifyListeners();
       }

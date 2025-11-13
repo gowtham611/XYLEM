@@ -5,11 +5,10 @@ import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../providers/sensor_data_provider.dart';
-import '../widgets/yield_prediction_widget.dart';
-import '../widgets/seasonal_prediction_widget.dart';
 import '../services/ml_service.dart';
 import '../services/onnx_runtime_service.dart';
 import 'package:lottie/lottie.dart';
+import '../l10n/app_localizations.dart';
 
 
 class PredictionScreen extends StatefulWidget {
@@ -126,8 +125,8 @@ class _PredictionScreenState extends State<PredictionScreen>
     try {
       provider.startSimulation();
 
-      final timeout = Duration(seconds: 3);
-      final pollInterval = Duration(milliseconds: 200);
+      const timeout = Duration(seconds: 3);
+      const pollInterval = Duration(milliseconds: 200);
       var waited = Duration.zero;
 
       while (provider.currentData == null && waited < timeout) {
@@ -156,6 +155,8 @@ class _PredictionScreenState extends State<PredictionScreen>
   // --- UI Builders ---
 
   Widget _buildHeader() {
+    final l10n = AppLocalizations.of(context);
+    
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
@@ -183,7 +184,7 @@ class _PredictionScreenState extends State<PredictionScreen>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'AI Crop Advisor',
+                  l10n?.aiCropAdvisorTitle ?? 'AI Crop Advisor',
                   style: GoogleFonts.poppins(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
@@ -192,7 +193,7 @@ class _PredictionScreenState extends State<PredictionScreen>
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'Smart crop predictions · Soil insights · Farming tips',
+                  l10n?.smartCropPredictions ?? 'Smart crop predictions · Soil insights · Farming tips',
                   style: GoogleFonts.roboto(fontSize: 12, color: Colors.white70),
                 ),
               ],
@@ -203,7 +204,7 @@ class _PredictionScreenState extends State<PredictionScreen>
             icon: _loading
                 ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
                 : const Icon(Icons.check_circle_outline, color: Colors.white),
-            tooltip: 'Check ONNX Runtime',
+            tooltip: l10n?.checkOnnxRuntime ?? 'Check ONNX Runtime',
           )
         ],
       ),
@@ -211,6 +212,8 @@ class _PredictionScreenState extends State<PredictionScreen>
   }
 
   Widget _buildControls(SensorDataProvider provider) {
+    final l10n = AppLocalizations.of(context);
+    
     return Row(
       children: [
         Expanded(
@@ -218,7 +221,7 @@ class _PredictionScreenState extends State<PredictionScreen>
             icon: _loading
                 ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
                 : const Icon(FontAwesomeIcons.play),
-            label: Text(_loading ? 'Running...' : 'Run AI Prediction'),
+            label: Text(_loading ? (l10n?.runningDots ?? 'Running...') : (l10n?.runAIPredictionButton ?? 'Run AI Prediction')),
             onPressed: _loading || provider.currentData == null
                 ? null
                 : () => _runPrediction(provider.currentData!),
@@ -239,10 +242,10 @@ class _PredictionScreenState extends State<PredictionScreen>
           child: _loading
               ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
               : Row(
-            children: const [
-              Icon(FontAwesomeIcons.bolt, size: 16),
-              SizedBox(width: 8),
-              Text('Simulate'),
+            children: [
+              const Icon(FontAwesomeIcons.bolt, size: 16),
+              const SizedBox(width: 8),
+              Text(l10n?.simulateButton ?? 'Simulate'),
             ],
           ),
         ),
@@ -279,6 +282,8 @@ class _PredictionScreenState extends State<PredictionScreen>
   }
 
   Widget _buildEmptyCard() {
+    final l10n = AppLocalizations.of(context);
+    
     return Card(
       elevation: 6,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -290,9 +295,9 @@ class _PredictionScreenState extends State<PredictionScreen>
             children: [
               Icon(FontAwesomeIcons.seedling, size: 44, color: Colors.grey[500]),
               const SizedBox(height: 8),
-              Text('No predictions yet', style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w600)),
+              Text(l10n?.noPredictionsYetTitle ?? 'No predictions yet', style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w600)),
               const SizedBox(height: 6),
-              Text('Run the AI prediction to see results', style: GoogleFonts.roboto(fontSize: 12, color: Colors.grey[600])),
+              Text(l10n?.runAIPredictionToSeeResults ?? 'Run the AI prediction to see results', style: GoogleFonts.roboto(fontSize: 12, color: Colors.grey[600])),
             ],
           ),
         ),
@@ -301,6 +306,8 @@ class _PredictionScreenState extends State<PredictionScreen>
   }
 
   Widget _buildStatus() {
+    final l10n = AppLocalizations.of(context);
+    
     if (_error != null) {
       return Card(
         color: Colors.red[50],
@@ -310,7 +317,7 @@ class _PredictionScreenState extends State<PredictionScreen>
             children: [
               const Icon(Icons.error_outline, color: Colors.red),
               const SizedBox(width: 8),
-              Expanded(child: Text('Prediction error: $_error')),
+              Expanded(child: Text('${l10n?.predictionError ?? "Prediction error:"} $_error')),
             ],
           ),
         ),
@@ -363,6 +370,8 @@ class _PredictionScreenState extends State<PredictionScreen>
   }
 
   Widget _buildNoPredictionCard(SensorDataProvider provider) {
+    final l10n = AppLocalizations.of(context);
+    
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -375,15 +384,15 @@ class _PredictionScreenState extends State<PredictionScreen>
               Icon(FontAwesomeIcons.brain, size: 48, color: Colors.grey[400]),
               const SizedBox(height: 12),
               Text(
-                'No Prediction Data',
+                l10n?.noPredictionDataTitle ?? 'No Prediction Data',
                 style: GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.grey[600]),
               ),
               const SizedBox(height: 8),
-              Text('Connect sensors or start simulation to get predictions', style: GoogleFonts.roboto(fontSize: 13, color: Colors.grey[600])),
+              Text(l10n?.connectSensorsOrStartSimulation ?? 'Connect sensors or start simulation to get predictions', style: GoogleFonts.roboto(fontSize: 13, color: Colors.grey[600])),
               const SizedBox(height: 12),
               ElevatedButton.icon(
                 icon: _loading ? const SizedBox(width:16,height:16,child:CircularProgressIndicator(strokeWidth:2)) : const Icon(FontAwesomeIcons.play),
-                label: Text(_loading ? 'Starting...' : 'Simulate & Run'),
+                label: Text(_loading ? (l10n?.startingDots ?? 'Starting...') : (l10n?.simulateAndRun ?? 'Simulate & Run')),
                 onPressed: _loading ? null : () => _simulateAndRun(provider),
               ),
             ],
@@ -395,6 +404,7 @@ class _PredictionScreenState extends State<PredictionScreen>
 
   // Keep crop recommendations logic (copied to match your original)
   Widget _buildCropRecommendationsCard(SensorData data) {
+    final l10n = AppLocalizations.of(context);
     final recommendations = _generateCropRecommendations(data);
 
     return Card(
@@ -406,7 +416,7 @@ class _PredictionScreenState extends State<PredictionScreen>
           Row(children: [
             const Icon(FontAwesomeIcons.seedling, color: Colors.green, size: 20),
             const SizedBox(width: 8),
-            Text('Recommended Crops', style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold)),
+            Text(l10n?.recommendedCropsTitle ?? 'Recommended Crops', style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.bold)),
           ]),
           const SizedBox(height: 12),
           ...recommendations.map((crop) => _buildCropRecommendationItem(crop)),
@@ -448,24 +458,25 @@ class _PredictionScreenState extends State<PredictionScreen>
   }
 
   List<Map<String, dynamic>> _generateCropRecommendations(SensorData data) {
+    final l10n = AppLocalizations.of(context);
     List<Map<String, dynamic>> recommendations = [];
 
     if (data.ph >= 6.0 && data.ph <= 7.0 && data.moisture >= 60 && data.nitrogen >= 40) {
-      recommendations.add({'name': 'Tomatoes', 'emoji': '🍅', 'reason': 'Optimal pH and high nitrogen levels', 'suitability': 95});
+      recommendations.add({'name': l10n?.cropTomatoes ?? 'Tomatoes', 'emoji': '🍅', 'reason': l10n?.optimalPHHighNitrogenReason ?? 'Optimal pH and high nitrogen levels', 'suitability': 95});
     }
     if (data.ph >= 5.5 && data.ph <= 6.5 && data.phosphorus >= 20) {
-      recommendations.add({'name': 'Potatoes', 'emoji': '🥔', 'reason': 'Good pH and phosphorus levels', 'suitability': 88});
+      recommendations.add({'name': l10n?.cropPotatoes ?? 'Potatoes', 'emoji': '🥔', 'reason': l10n?.goodPHPhosphorusReason ?? 'Good pH and phosphorus levels', 'suitability': 88});
     }
     if (data.nitrogen >= 50 && data.moisture >= 70) {
-      recommendations.add({'name': 'Leafy Greens', 'emoji': '🥬', 'reason': 'High nitrogen and moisture content', 'suitability': 92});
+      recommendations.add({'name': l10n?.cropLeafyGreens ?? 'Leafy Greens', 'emoji': '🥬', 'reason': l10n?.highNitrogenMoistureReason ?? 'High nitrogen and moisture content', 'suitability': 92});
     }
     if (data.ph >= 6.0 && data.ph <= 7.0 && data.potassium >= 30) {
-      recommendations.add({'name': 'Peppers', 'emoji': '🌶️', 'reason': 'Good pH and potassium levels', 'suitability': 85});
+      recommendations.add({'name': l10n?.cropPeppers ?? 'Peppers', 'emoji': '🌶️', 'reason': l10n?.goodPHPotassiumReason ?? 'Good pH and potassium levels', 'suitability': 85});
     }
     if (recommendations.isEmpty) {
       recommendations.addAll([
-        {'name': 'Legumes', 'emoji': '🫘', 'reason': 'Nitrogen fixers, improve soil quality', 'suitability': 70},
-        {'name': 'Herbs', 'emoji': '🌿', 'reason': 'Adaptable to various soil conditions', 'suitability': 75},
+        {'name': l10n?.cropLegumes ?? 'Legumes', 'emoji': '🫘', 'reason': l10n?.nitrogenFixersReason ?? 'Nitrogen fixers, improve soil quality', 'suitability': 70},
+        {'name': l10n?.cropHerbs ?? 'Herbs', 'emoji': '🌿', 'reason': l10n?.adaptableToSoilReason ?? 'Adaptable to various soil conditions', 'suitability': 75},
       ]);
     }
     recommendations.sort((a, b) => b['suitability'].compareTo(a['suitability']));
@@ -567,7 +578,45 @@ class _PredictionCardBodyState extends State<_PredictionCardBody> {
     if (n.contains('banana')) return '🍌';
     if (n.contains('mango')) return '🥭';
     if (n.contains('tomato')) return '🍅';
+    if (n.contains('orange')) return '🍊';
+    if (n.contains('grape')) return '🍇';
+    if (n.contains('watermelon')) return '🍉';
+    if (n.contains('coconut')) return '🥥';
+    if (n.contains('pomegranate')) return '🍈';
+    if (n.contains('papaya')) return '🍈';
+    if (n.contains('coffee')) return '☕';
+    if (n.contains('cotton')) return '🌼';
     return '🌱';
+  }
+  
+  String _translateCropName(BuildContext context, String cropName) {
+    final l10n = AppLocalizations.of(context);
+    final name = cropName.toLowerCase();
+    
+    if (name.contains('rice')) return l10n?.cropRice ?? 'Rice';
+    if (name.contains('maize')) return l10n?.cropMaize ?? 'Maize';
+    if (name.contains('chickpea')) return l10n?.cropChickpea ?? 'Chickpea';
+    if (name.contains('kidneybeans')) return l10n?.cropKidneybeans ?? 'Kidney Beans';
+    if (name.contains('pigeonpeas')) return l10n?.cropPigeonpeas ?? 'Pigeon Peas';
+    if (name.contains('mothbeans')) return l10n?.cropMothbeans ?? 'Moth Beans';
+    if (name.contains('mungbean')) return l10n?.cropMungbean ?? 'Mung Bean';
+    if (name.contains('blackgram')) return l10n?.cropBlackgram ?? 'Black Gram';
+    if (name.contains('lentil')) return l10n?.cropLentil ?? 'Lentil';
+    if (name.contains('pomegranate')) return l10n?.cropPomegranate ?? 'Pomegranate';
+    if (name.contains('banana')) return l10n?.cropBanana ?? 'Banana';
+    if (name.contains('mango')) return l10n?.cropMango ?? 'Mango';
+    if (name.contains('grapes')) return l10n?.cropGrapes ?? 'Grapes';
+    if (name.contains('watermelon')) return l10n?.cropWatermelon ?? 'Watermelon';
+    if (name.contains('muskmelon')) return l10n?.cropMuskmelon ?? 'Muskmelon';
+    if (name.contains('apple')) return l10n?.cropApple ?? 'Apple';
+    if (name.contains('orange')) return l10n?.cropOrange ?? 'Orange';
+    if (name.contains('papaya')) return l10n?.cropPapaya ?? 'Papaya';
+    if (name.contains('coconut')) return l10n?.cropCoconut ?? 'Coconut';
+    if (name.contains('cotton')) return l10n?.cropCotton ?? 'Cotton';
+    if (name.contains('jute')) return l10n?.cropJute ?? 'Jute';
+    if (name.contains('coffee')) return l10n?.cropCoffee ?? 'Coffee';
+    
+    return cropName;
   }
 
   @override
@@ -618,9 +667,9 @@ class _PredictionCardBodyState extends State<_PredictionCardBody> {
                   // Name + subtitle
                   Expanded(
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      Text(pred.cropName.toUpperCase(), style: GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.w700)),
+                      Text(_translateCropName(context, pred.cropName).toUpperCase(), style: GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.w700)),
                       const SizedBox(height: 2),
-                      Text('Model recommendation', style: GoogleFonts.roboto(fontSize: 12, color: Colors.grey[600])),
+                      Text(AppLocalizations.of(context)?.modelRecommendationSubtitle ?? 'Model recommendation', style: GoogleFonts.roboto(fontSize: 12, color: Colors.grey[600])),
                     ]),
                   ),
                   const SizedBox(width: 8),
@@ -633,7 +682,7 @@ class _PredictionCardBodyState extends State<_PredictionCardBody> {
                       return Container(
                         padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
                         decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(20)),
-                        child: Text("Confidence: $percent%", style: GoogleFonts.roboto(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 13)),
+                        child: Text("${AppLocalizations.of(context)?.confidenceLabel ?? 'Confidence'}: $percent%", style: GoogleFonts.roboto(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 13)),
                       );
                     },
                   ),
@@ -662,7 +711,7 @@ class _PredictionCardBodyState extends State<_PredictionCardBody> {
                                 children: [
                                   Text('${((_confAnim.value * 100).clamp(0, 100)).toStringAsFixed(0)}%', style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w700)),
                                   const SizedBox(height: 6),
-                                  Text('Confidence', style: GoogleFonts.roboto(fontSize: 12, color: Colors.grey[700])),
+                                  Text(AppLocalizations.of(context)?.confidenceLabel ?? 'Confidence', style: GoogleFonts.roboto(fontSize: 12, color: Colors.grey[700])),
                                 ],
                               ),
                             ),
@@ -677,7 +726,7 @@ class _PredictionCardBodyState extends State<_PredictionCardBody> {
                   // Top 3 alternatives with bars
                   Expanded(
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      Text("Top alternatives", style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w600)),
+                      Text(AppLocalizations.of(context)?.topAlternatives ?? "Top alternatives", style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w600)),
                       const SizedBox(height: 8),
                       Column(
                         children: top3.map((alt) {
@@ -686,7 +735,7 @@ class _PredictionCardBodyState extends State<_PredictionCardBody> {
                             padding: const EdgeInsets.symmetric(vertical: 6),
                             child: Row(
                               children: [
-                                Expanded(flex: 3, child: Text(alt.name, style: GoogleFonts.roboto(fontSize: 13))),
+                                Expanded(flex: 3, child: Text(_translateCropName(context, alt.name), style: GoogleFonts.roboto(fontSize: 13))),
                                 const SizedBox(width: 8),
                                 Expanded(
                                   flex: 6,
@@ -696,7 +745,7 @@ class _PredictionCardBodyState extends State<_PredictionCardBody> {
                                       value: alt.confidence,
                                       minHeight: 10,
                                       backgroundColor: Colors.grey.shade200,
-                                      valueColor: AlwaysStoppedAnimation<Color>(Colors.deepPurple),
+                                      valueColor: const AlwaysStoppedAnimation<Color>(Colors.deepPurple),
                                     ),
                                   ),
                                 ),
@@ -721,14 +770,14 @@ class _PredictionCardBodyState extends State<_PredictionCardBody> {
                   spacing: 8,
                   runSpacing: 8,
                   children: [
-                    Chip(label: Text('Soil: ${soil.overall.toUpperCase()}'), avatar: const Icon(Icons.terrain, size: 16)),
-                    if (soil.issues.isNotEmpty) Chip(label: Text('${soil.issues.length} issues'), avatar: const Icon(Icons.warning, size: 16)),
-                    if (soil.recommendations.isNotEmpty) Chip(label: Text('Tips'), avatar: const Icon(Icons.lightbulb, size: 16)),
+                    Chip(label: Text('${AppLocalizations.of(context)?.soilLabel ?? 'Soil'}: ${soil.overall.toUpperCase()}'), avatar: const Icon(Icons.terrain, size: 16)),
+                    if (soil.issues.isNotEmpty) Chip(label: Text('${soil.issues.length} ${AppLocalizations.of(context)?.issuesLabel ?? 'issues'}'), avatar: const Icon(Icons.warning, size: 16)),
+                    if (soil.recommendations.isNotEmpty) Chip(label: Text(AppLocalizations.of(context)?.tipsLabel ?? 'Tips'), avatar: const Icon(Icons.lightbulb, size: 16)),
                     Container(
                       margin: const EdgeInsets.only(left: 6),
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                       decoration: BoxDecoration(color: Colors.indigo, borderRadius: BorderRadius.circular(10)),
-                      child: Text(pred.confidence > 0.5 ? 'Primary' : 'Advisory', style: GoogleFonts.roboto(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+                      child: Text(pred.confidence > 0.5 ? (AppLocalizations.of(context)?.primaryLabel ?? 'Primary') : (AppLocalizations.of(context)?.advisoryLabel ?? 'Advisory'), style: GoogleFonts.roboto(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
                     ),
                   ],
                 ),
@@ -737,10 +786,10 @@ class _PredictionCardBodyState extends State<_PredictionCardBody> {
               const SizedBox(height: 8),
 
               ExpansionTile(
-                title: Text('View soil recommendations', style: GoogleFonts.roboto(fontSize: 13, fontWeight: FontWeight.w600)),
+                title: Text(AppLocalizations.of(context)?.viewSoilRecommendationsTitle ?? 'View soil recommendations', style: GoogleFonts.roboto(fontSize: 13, fontWeight: FontWeight.w600)),
                 children: [
                   if (soil.issues.isEmpty)
-                    Padding(padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8), child: Text('No major soil issues detected.', style: GoogleFonts.roboto(fontSize: 13))),
+                    Padding(padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8), child: Text(AppLocalizations.of(context)?.noMajorSoilIssues ?? 'No major soil issues detected.', style: GoogleFonts.roboto(fontSize: 13))),
                   ...soil.issues.map((s) => ListTile(dense: true, leading: const Icon(Icons.error_outline, color: Colors.orange), title: Text(s, style: GoogleFonts.roboto(fontSize: 13)))),
                   if (soil.issues.isNotEmpty) const Divider(),
                   ...soil.recommendations.map((r) => ListTile(dense: true, leading: const Icon(Icons.check_circle_outline, color: Colors.green), title: Text(r, style: GoogleFonts.roboto(fontSize: 13)))),

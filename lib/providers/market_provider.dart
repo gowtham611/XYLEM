@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import '../services/market_api_service.dart';
 
 class MarketPrice {
   final String commodity;
@@ -47,111 +48,89 @@ class MarketProvider with ChangeNotifier {
   String get error => _error;
   DateTime? get lastUpdated => _lastUpdated;
 
-  Future<void> fetchMarketData() async {
+  // 🔹 List of all Indian states
+  final List<String> indianStates = [
+    "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh",
+    "Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka",
+    "Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram",
+    "Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu",
+    "Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal"
+  ];
+
+  Future<void> fetchMarketData({String state = "Tamil Nadu"}) async {
     _isLoading = true;
     _error = '';
     notifyListeners();
 
     try {
-      await Future.delayed(const Duration(seconds: 2)); // Simulate API call
-      
-      _prices = [
-        MarketPrice(
-          commodity: 'Rice',
-          price: 2275.0,
-          changePercent: 2.1,
-          market: 'Karnataka APMC',
-          unit: '₹/quintal',
-          lastUpdated: DateTime.now(),
-          trend: 'up',
-        ),
-        MarketPrice(
-          commodity: 'Wheat',
-          price: 2015.0,
-          changePercent: 5.8,
-          market: 'Punjab APMC',
-          unit: '₹/quintal',
-          lastUpdated: DateTime.now(),
-          trend: 'up',
-        ),
-        MarketPrice(
-          commodity: 'Cotton',
-          price: 5850.0,
-          changePercent: -3.2,
-          market: 'Gujarat APMC',
-          unit: '₹/quintal',
-          lastUpdated: DateTime.now(),
-          trend: 'down',
-        ),
-        MarketPrice(
-          commodity: 'Turmeric',
-          price: 8500.0,
-          changePercent: 4.3,
-          market: 'Erode APMC',
-          unit: '₹/quintal',
-          lastUpdated: DateTime.now(),
-          trend: 'up',
-        ),
-        MarketPrice(
-          commodity: 'Onion',
-          price: 2800.0,
-          changePercent: -2.1,
-          market: 'Nashik APMC',
-          unit: '₹/quintal',
-          lastUpdated: DateTime.now(),
-          trend: 'down',
-        ),
-        MarketPrice(
-          commodity: 'Tomato',
-          price: 3500.0,
-          changePercent: 7.2,
-          market: 'Bangalore APMC',
-          unit: '₹/quintal',
-          lastUpdated: DateTime.now(),
-          trend: 'up',
-        ),
-      ];
+      final rawData = await MarketApiService.fetchAllCrops(state);
+
+      List<MarketPrice> parsed = [];
+
+      for (var item in rawData.take(50)) {
+        double minPrice = double.tryParse(item["min_price"] ?? "0") ?? 0;
+        double maxPrice = double.tryParse(item["max_price"] ?? "0") ?? 0;
+
+        double avgPrice = (minPrice + maxPrice) / 2;
+
+        // Trend Estimation
+        String trend = "stable";
+        double changePercent = 0;
+        if (avgPrice > 3000) {
+          trend = "up";
+          changePercent = 5.1;
+        } else if (avgPrice < 1500) {
+          trend = "down";
+          changePercent = -4.3;
+        }
+
+        parsed.add(
+          MarketPrice(
+            commodity: item["commodity"] ?? "Unknown",
+            price: avgPrice,
+            changePercent: changePercent,
+            market: item["market"] ?? "Unknown Market",
+            unit: "₹/quintal",
+            lastUpdated: DateTime.now(),
+            trend: trend,
+          ),
+        );
+      }
+
+      _prices = parsed;
+      _lastUpdated = DateTime.now();
 
       _news = [
         MarketNews(
-          title: 'Rice Prices Show Upward Trend',
-          summary: 'Increased international demand pushes rice prices higher across Karnataka markets',
-          impact: 'positive',
-          publishedAt: DateTime.now().subtract(const Duration(hours: 2)),
-        ),
-        MarketNews(
-          title: 'Weather Forecast Positive for Wheat',
-          summary: 'Favorable conditions expected to boost wheat production this season',
-          impact: 'neutral',
-          publishedAt: DateTime.now().subtract(const Duration(hours: 4)),
-        ),
-        MarketNews(
-          title: 'Cotton Market Faces Global Pressure',
-          summary: 'International supply chain disruptions affecting cotton price stability',
-          impact: 'negative',
-          publishedAt: DateTime.now().subtract(const Duration(hours: 6)),
-        ),
+          title: "Market Updated",
+          summary: "Latest mandi data fetched from data.gov.in",
+          impact: "neutral",
+          publishedAt: DateTime.now(),
+        )
       ];
-
-      _lastUpdated = DateTime.now();
-      _error = '';
     } catch (e) {
-      _error = 'Failed to fetch market data: ${e.toString()}';
-    } finally {
-      _isLoading = false;
-      notifyListeners();
+      _error = "Error: $e";
     }
+
+    _isLoading = false;
+    notifyListeners();
   }
 
-  Future<void> refreshMarketData() async {
-    await fetchMarketData();
+  List<MarketPrice> filteredPrices(String query) {
+    if (query.isEmpty) return _prices;
+
+    return _prices.where((p) =>
+        p.commodity.toLowerCase().contains(query.toLowerCase()) ||
+        p.market.toLowerCase().contains(query.toLowerCase())).toList();
   }
 
-  List<MarketPrice> getTrendingUp() {
-    return _prices.where((price) => price.trend == 'up').toList();
-  }
+  List<MarketPrice> getTrendingUp() =>
+      _prices.where((p) => p.trend == "up").toList();
 
-  List<MarketPrice> getTrendingDown() {
-    return _prices.where((price) => price.trend == 'down').toList();
+  List<MarketPrice> getTrendingDown() =>
+      _prices.where((p) => p.trend == "down").toList();
+
+  Future<void> refreshMarketData({String state = "Tamil Nadu"}) async {
+    await fetchMarketData(state: state);
   }
 }
