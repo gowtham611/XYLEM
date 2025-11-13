@@ -8,7 +8,8 @@ import 'providers/language_provider.dart';
 import 'screens/home_screen.dart';
 import 'theme/app_theme.dart';
 import 'providers/weather_provider.dart'; 
-import 'providers/market_provider.dart'; 
+import 'providers/market_provider.dart';
+import 'l10n/app_localizations.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,19 +32,15 @@ class MyApp extends StatelessWidget {
       child: Consumer<LanguageProvider>(
         builder: (context, languageProvider, child) {
           return MaterialApp(
-            title: 'EasyGrow',
+            title: 'XYLEM',
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: ThemeMode.system,
             
-            // Basic localization without flutter_gen
+            // Updated localization with AppLocalizations
             locale: languageProvider.currentLocale,
-            localizationsDelegates: const [
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: languageProvider.supportedLocales,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
             
             home: const SplashScreen(),
             debugShowCheckedModeBanner: false,
@@ -100,12 +97,6 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
-    // Get localized strings based on current locale
-    String appTitle = 'EasyGrow';
-    if (Provider.of<LanguageProvider>(context).currentLocale.languageCode == 'kn') {
-      appTitle = '  ';
-    }
-
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -147,7 +138,7 @@ class _SplashScreenState extends State<SplashScreen>
                 ),
                 const SizedBox(height: 30),
                 Text(
-                  appTitle,
+                  'XYLEM',
                   style: GoogleFonts.poppins(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
