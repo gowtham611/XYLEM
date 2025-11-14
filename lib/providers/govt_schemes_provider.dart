@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
+import '../services/govt_schemes_api_service.dart';
+import '../services/govt_schemes_translations.dart';
 
 class GovtScheme {
   final String name;
@@ -10,6 +12,9 @@ class GovtScheme {
   final String deadline;
   final String applyLink;
   final String region;
+  final String category;
+  final String ministry;
+  final String status;
 
   GovtScheme({
     required this.name,
@@ -19,6 +24,9 @@ class GovtScheme {
     required this.deadline,
     required this.applyLink,
     required this.region,
+    this.category = 'General',
+    this.ministry = 'Government of India',
+    this.status = 'Active',
   });
 
   factory GovtScheme.fromJson(Map<String, dynamic> json) {
@@ -30,60 +38,70 @@ class GovtScheme {
       deadline: json['deadline'] ?? '',
       applyLink: json['apply_link'] ?? '',
       region: json['region'] ?? '',
+      category: json['category'] ?? 'General',
+      ministry: json['ministry'] ?? 'Government of India',
+      status: json['status'] ?? 'Active',
     );
+  }
+
+  /// Get localized content based on language code
+  String getLocalizedName(String languageCode) {
+    final translation = GovtSchemesTranslations.getTranslation(name, languageCode);
+    return translation?['name'] ?? name;
+  }
+
+  String getLocalizedDescription(String languageCode) {
+    final translation = GovtSchemesTranslations.getTranslation(name, languageCode);
+    return translation?['description'] ?? description;
+  }
+
+  String getLocalizedEligibility(String languageCode) {
+    final translation = GovtSchemesTranslations.getTranslation(name, languageCode);
+    return translation?['eligibility'] ?? eligibility;
+  }
+
+  String getLocalizedAmount(String languageCode) {
+    final translation = GovtSchemesTranslations.getTranslation(name, languageCode);
+    return translation?['amount'] ?? amount;
+  }
+
+  String getLocalizedDeadline(String languageCode) {
+    final translation = GovtSchemesTranslations.getTranslation(name, languageCode);
+    return translation?['deadline'] ?? deadline;
+  }
+
+  String getLocalizedMinistry(String languageCode) {
+    final translation = GovtSchemesTranslations.getTranslation(name, languageCode);
+    return translation?['ministry'] ?? ministry;
+  }
+
+  String getLocalizedRegion(String languageCode) {
+    final translation = GovtSchemesTranslations.getTranslation(name, languageCode);
+    return translation?['region'] ?? region;
   }
 }
 
 class GovtSchemesProvider with ChangeNotifier {
   List<GovtScheme> _schemes = [];
+  List<GovtScheme> _allSchemes = [];
   bool _isLoading = false;
   String _error = '';
   String _currentRegion = '';
+  String _selectedCategory = 'All';
   
-  // Demo schemes data (replace with actual API)
-  final List<Map<String, dynamic>> _demoSchemes = [
-    {
-      'name': 'PM-KUSUM Solar Pump Subsidy',
-      'description': 'Solar pump installation subsidy for farmers',
-      'eligibility': 'All farmers with agricultural land',
-      'amount': '65% subsidy up to ₹4.8 lakh',
-      'deadline': '31st December 2025',
-      'apply_link': 'https://pmkusum.mnre.gov.in/',
-      'region': 'Karnataka',
-    },
-    {
-      'name': 'Pradhan Mantri Fasal Bima Yojana',
-      'description': 'Crop insurance scheme for farmers',
-      'eligibility': 'All farmers growing crops',
-      'amount': 'Premium subsidy up to 90%',
-      'deadline': 'Ongoing',
-      'apply_link': 'https://pmfby.gov.in/',
-      'region': 'All India',
-    },
-    {
-      'name': 'Karnataka Raitha Siri Scheme',
-      'description': 'Agricultural input subsidy for Karnataka farmers',
-      'eligibility': 'Karnataka farmers with land records',
-      'amount': '₹10,000 per hectare',
-      'deadline': '30th June 2025',
-      'apply_link': 'https://raitamitra.karnataka.gov.in/',
-      'region': 'Karnataka',
-    },
-    {
-      'name': 'Micro Irrigation Scheme',
-      'description': 'Drip and sprinkler irrigation subsidy',
-      'eligibility': 'Small and marginal farmers',
-      'amount': '55% subsidy for drip/sprinkler',
-      'deadline': '31st March 2026',
-      'apply_link': 'https://pmksy.gov.in/',
-      'region': 'All India',
-    },
-  ];
-
   List<GovtScheme> get schemes => _schemes;
+  List<GovtScheme> get allSchemes => _allSchemes;
   bool get isLoading => _isLoading;
   String get error => _error;
   String get currentRegion => _currentRegion;
+  String get selectedCategory => _selectedCategory;
+  
+  // Get unique categories
+  List<String> get categories {
+    final cats = _allSchemes.map((s) => s.category).toSet().toList();
+    cats.insert(0, 'All');
+    return cats;
+  }
 
   Future<void> fetchSchemes() async {
     _isLoading = true;
@@ -94,23 +112,33 @@ class GovtSchemesProvider with ChangeNotifier {
       // Get current location to determine region
       await _getCurrentRegion();
       
-      // Simulate API call delay
-      await Future.delayed(const Duration(seconds: 2));
+      // Fetch schemes from API service
+      final schemesData = await GovtSchemesApiService.fetchGovernmentSchemes(
+        state: _currentRegion.isNotEmpty ? _currentRegion : null,
+      );
       
-      // Filter schemes based on region or show all
-      final relevantSchemes = _demoSchemes.where((scheme) {
-        return scheme['region'] == 'All India' || 
-               scheme['region'] == _currentRegion ||
-               _currentRegion.isEmpty;
-      }).toList();
-      
-      _schemes = relevantSchemes.map((json) => GovtScheme.fromJson(json)).toList();
+      _allSchemes = schemesData.map((json) => GovtScheme.fromJson(json)).toList();
+      _filterSchemes();
       
     } catch (e) {
       _error = 'Failed to fetch schemes: ${e.toString()}';
     } finally {
       _isLoading = false;
       notifyListeners();
+    }
+  }
+  
+  void filterByCategory(String category) {
+    _selectedCategory = category;
+    _filterSchemes();
+    notifyListeners();
+  }
+  
+  void _filterSchemes() {
+    if (_selectedCategory == 'All') {
+      _schemes = _allSchemes;
+    } else {
+      _schemes = _allSchemes.where((s) => s.category == _selectedCategory).toList();
     }
   }
 

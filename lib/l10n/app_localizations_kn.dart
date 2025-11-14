@@ -125,6 +125,78 @@ class AppLocalizationsKn extends AppLocalizations {
   String get applyNow => 'ಈಗ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ';
 
   @override
+  String get schemesAvailable => 'ಯೋಜನೆಗಳು';
+
+  @override
+  String get showingSchemes => 'ಯೋಜನೆಗಳನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ:';
+
+  @override
+  String get allCategories => 'ಎಲ್ಲಾ';
+
+  @override
+  String get benefits => 'ಪ್ರಯೋಜನಗಳು';
+
+  @override
+  String get ministry => 'ಸಚಿವಾಲಯ';
+
+  @override
+  String get region => 'ಪ್ರದೇಶ';
+
+  @override
+  String get category => 'ವರ್ಗ';
+
+  @override
+  String get schemeStatus => 'ಸ್ಥಿತಿ';
+
+  @override
+  String get noSchemesAvailable => 'ಯಾವುದೇ ಯೋಜನೆಗಳು ಲಭ್ಯವಿಲ್ಲ';
+
+  @override
+  String get schemeDetails => 'ಯೋಜನೆ ವಿವರಗಳು';
+
+  @override
+  String get unableToOpenLink => 'ಲಿಂಕ್ ತೆರೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ';
+
+  @override
+  String get categoryIncomeSupport => 'ಆದಾಯ ಬೆಂಬಲ';
+
+  @override
+  String get categoryInsurance => 'ವಿಮೆ';
+
+  @override
+  String get categoryEnergy => 'ಶಕ್ತಿ ಮತ್ತು ಮೂಲಸೌಕರ್ಯ';
+
+  @override
+  String get categoryIrrigation => 'ನೀರಾವರಿ';
+
+  @override
+  String get categoryCredit => 'ಸಾಲ ಮತ್ತು ಹಣಕಾಸು';
+
+  @override
+  String get categorySoilManagement => 'ಮಣ್ಣು ನಿರ್ವಹಣೆ';
+
+  @override
+  String get categoryMarketAccess => 'ಮಾರುಕಟ್ಟೆ ಪ್ರವೇಶ';
+
+  @override
+  String get categoryOrganicFarming => 'ಸಾವಯವ ಕೃಷಿ';
+
+  @override
+  String get categoryHorticulture => 'ತೋಟಗಾರಿಕೆ';
+
+  @override
+  String get categoryMechanization => 'ಯಾಂತ್ರೀಕರಣ';
+
+  @override
+  String get categoryFPOSupport => 'ಎಫ್ಪಿಒ ಬೆಂಬಲ';
+
+  @override
+  String get categoryInputSubsidy => 'ಇನ್ಪುಟ್ ಸಬ್ಸಿಡಿ';
+
+  @override
+  String get allIndia => 'ಎಲ್ಲಾ ಭಾರತ';
+
+  @override
   String get language => 'ಭಾಷೆ';
 
   @override
