@@ -285,6 +285,114 @@ class AppLocalizationsEn extends AppLocalizations {
   String get marketError => 'Market Error';
 
   @override
+  String get selectState => 'Select State';
+
+  @override
+  String get searchCropOrMarket => 'Search crop or market';
+
+  @override
+  String get commodityPrices => 'Commodity Prices';
+
+  @override
+  String get perQuintal => 'quintal';
+
+  @override
+  String get risingPrices => 'Rising Prices';
+
+  @override
+  String get fallingPrices => 'Falling Prices';
+
+  @override
+  String get noMarketNewsAvailable => 'No market news available';
+
+  @override
+  String get failedToLoadMarketData => 'Failed to load market data';
+
+  @override
+  String get stateAndhraPradesh => 'Andhra Pradesh';
+
+  @override
+  String get stateArunachalPradesh => 'Arunachal Pradesh';
+
+  @override
+  String get stateAssam => 'Assam';
+
+  @override
+  String get stateBihar => 'Bihar';
+
+  @override
+  String get stateChhattisgarh => 'Chhattisgarh';
+
+  @override
+  String get stateGoa => 'Goa';
+
+  @override
+  String get stateGujarat => 'Gujarat';
+
+  @override
+  String get stateHaryana => 'Haryana';
+
+  @override
+  String get stateHimachalPradesh => 'Himachal Pradesh';
+
+  @override
+  String get stateJharkhand => 'Jharkhand';
+
+  @override
+  String get stateKarnataka => 'Karnataka';
+
+  @override
+  String get stateKerala => 'Kerala';
+
+  @override
+  String get stateMadhyaPradesh => 'Madhya Pradesh';
+
+  @override
+  String get stateMaharashtra => 'Maharashtra';
+
+  @override
+  String get stateManipur => 'Manipur';
+
+  @override
+  String get stateMeghalaya => 'Meghalaya';
+
+  @override
+  String get stateMizoram => 'Mizoram';
+
+  @override
+  String get stateNagaland => 'Nagaland';
+
+  @override
+  String get stateOdisha => 'Odisha';
+
+  @override
+  String get statePunjab => 'Punjab';
+
+  @override
+  String get stateRajasthan => 'Rajasthan';
+
+  @override
+  String get stateSikkim => 'Sikkim';
+
+  @override
+  String get stateTamilNadu => 'Tamil Nadu';
+
+  @override
+  String get stateTelangana => 'Telangana';
+
+  @override
+  String get stateTripura => 'Tripura';
+
+  @override
+  String get stateUttarPradesh => 'Uttar Pradesh';
+
+  @override
+  String get stateUttarakhand => 'Uttarakhand';
+
+  @override
+  String get stateWestBengal => 'West Bengal';
+
+  @override
   String get loadingWeatherData => 'Loading weather data...';
 
   @override
@@ -655,6 +763,219 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cropCoffee => 'Coffee';
+
+  @override
+  String get cropWheat => 'Wheat';
+
+  @override
+  String get cropBarley => 'Barley';
+
+  @override
+  String get cropSorghum => 'Sorghum';
+
+  @override
+  String get cropPearl => 'Pearl Millet';
+
+  @override
+  String get cropFinger => 'Finger Millet';
+
+  @override
+  String get cropOnion => 'Onion';
+
+  @override
+  String get cropTomato => 'Tomato';
+
+  @override
+  String get cropPotato => 'Potato';
+
+  @override
+  String get cropBrinjal => 'Brinjal';
+
+  @override
+  String get cropCauliflower => 'Cauliflower';
+
+  @override
+  String get cropCabbage => 'Cabbage';
+
+  @override
+  String get cropCarrot => 'Carrot';
+
+  @override
+  String get cropChilli => 'Chilli';
+
+  @override
+  String get cropCoriander => 'Coriander';
+
+  @override
+  String get cropGarlic => 'Garlic';
+
+  @override
+  String get cropGinger => 'Ginger';
+
+  @override
+  String get cropLadyFinger => 'Lady Finger';
+
+  @override
+  String get cropTurmeric => 'Turmeric';
+
+  @override
+  String get cropGroundnut => 'Groundnut';
+
+  @override
+  String get cropSoybean => 'Soybean';
+
+  @override
+  String get cropSunflower => 'Sunflower';
+
+  @override
+  String get cropMustard => 'Mustard';
+
+  @override
+  String get cropSesame => 'Sesame';
+
+  @override
+  String get cropCastor => 'Castor';
+
+  @override
+  String get cropSugarcane => 'Sugarcane';
+
+  @override
+  String get cropTea => 'Tea';
+
+  @override
+  String get cropCardamom => 'Cardamom';
+
+  @override
+  String get cropBlackPepper => 'Black Pepper';
+
+  @override
+  String get cropBeetleLeaf => 'Beetle Leaf';
+
+  @override
+  String get cropAreca => 'Areca Nut';
+
+  @override
+  String get cropCashew => 'Cashew';
+
+  @override
+  String get cropGuava => 'Guava';
+
+  @override
+  String get cropSapota => 'Sapota';
+
+  @override
+  String get cropPineapple => 'Pineapple';
+
+  @override
+  String get cropLemon => 'Lemon';
+
+  @override
+  String get cropSweet => 'Sweet Lime';
+
+  @override
+  String get cropCucumber => 'Cucumber';
+
+  @override
+  String get cropBitterGourd => 'Bitter Gourd';
+
+  @override
+  String get cropBottleGourd => 'Bottle Gourd';
+
+  @override
+  String get cropRidgeGourd => 'Ridge Gourd';
+
+  @override
+  String get cropPumpkin => 'Pumpkin';
+
+  @override
+  String get cropDrumstick => 'Drumstick';
+
+  @override
+  String get cropBeans => 'Beans';
+
+  @override
+  String get cropPeas => 'Peas';
+
+  @override
+  String get cropRadish => 'Radish';
+
+  @override
+  String get cropSpinach => 'Spinach';
+
+  @override
+  String get cropFenugreek => 'Fenugreek';
+
+  @override
+  String get cropMint => 'Mint';
+
+  @override
+  String get cropCurryLeaves => 'Curry Leaves';
+
+  @override
+  String get cropAshGourd => 'Ashgourd';
+
+  @override
+  String get cropAmaranthus => 'Amaranthus';
+
+  @override
+  String get cropCapsicum => 'Capsicum';
+
+  @override
+  String get cropBeet => 'Beetroot';
+
+  @override
+  String get cropSnakeGourd => 'Snake Gourd';
+
+  @override
+  String get cropClusterBeans => 'Cluster Beans';
+
+  @override
+  String get cropElephantYam => 'Elephant Yam';
+
+  @override
+  String get cropLittleGourd => 'Little Gourd';
+
+  @override
+  String get cropRatTailRadish => 'Rat Tail Radish';
+
+  @override
+  String get cropPeasCod => 'Peas';
+
+  @override
+  String get cropSweetPumpkin => 'Sweet Pumpkin';
+
+  @override
+  String get cropRidgeGuard => 'Ridge Gourd';
+
+  @override
+  String get cropTenderCoconut => 'Tender Coconut';
+
+  @override
+  String get cropPaddy => 'Paddy';
+
+  @override
+  String get cropMethi => 'Fenugreek Leaves';
+
+  @override
+  String get cropTurnip => 'Turnip';
+
+  @override
+  String get cropPapayaRaw => 'Raw Papaya';
+
+  @override
+  String get cropBroadBeans => 'Broad Beans';
+
+  @override
+  String get cropTondekai => 'Ivy Gourd';
+
+  @override
+  String get cropHorseGram => 'Horse Gram';
+
+  @override
+  String get cropKnolKhol => 'Knol Khol';
+
+  @override
+  String get cropGreenAvare => 'Green Avare';
 
   @override
   String get soil => 'Soil';

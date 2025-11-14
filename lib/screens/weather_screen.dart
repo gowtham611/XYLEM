@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../providers/weather_provider.dart';
 import '../models/weather_data.dart';
+import '../l10n/app_localizations.dart';
 
 
 class WeatherScreen extends StatefulWidget {
@@ -24,16 +25,18 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    
     return Consumer<WeatherProvider>(
       builder: (context, weatherProvider, child) {
         if (weatherProvider.isLoading) {
-          return const Center(
+          return Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircularProgressIndicator(),
-                SizedBox(height: 16),
-                Text('Loading weather data...'),
+                const CircularProgressIndicator(),
+                const SizedBox(height: 16),
+                Text(l10n?.loadingWeatherData ?? 'Loading weather data...'),
               ],
             ),
           );
@@ -67,6 +70,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
   }
 
   Widget _buildCurrentWeatherCard(WeatherData weather) {
+    final l10n = AppLocalizations.of(context);
+    
     return Card(
       elevation: 6,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -125,14 +130,14 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Feels like ${weather.feelsLike.toStringAsFixed(0)}°',
+                      '${l10n?.feelsLike ?? 'Feels like'} ${weather.feelsLike.toStringAsFixed(0)}°',
                       style: GoogleFonts.roboto(
                         fontSize: 16,
                         color: Colors.white.withOpacity(0.9),
                       ),
                     ),
                     Text(
-                      'Updated: ${_formatTime(weather.timestamp)}',
+                      '${l10n?.updatedAt ?? 'Updated'}: ${_formatTime(weather.timestamp)}',
                       style: GoogleFonts.roboto(
                         fontSize: 12,
                         color: Colors.white.withOpacity(0.7),
@@ -149,6 +154,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
   }
 
   Widget _buildWeatherDetailsCard(WeatherData weather) {
+    final l10n = AppLocalizations.of(context);
+    
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -158,7 +165,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Weather Details',
+              l10n?.weatherDetails ?? 'Weather Details',
               style: GoogleFonts.poppins(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
@@ -170,7 +177,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 Expanded(
                   child: _buildDetailItem(
                     FontAwesomeIcons.droplet,
-                    'Humidity',
+                    l10n?.humidity ?? 'Humidity',
                     '${weather.humidity.toStringAsFixed(0)}%',
                     Colors.blue,
                   ),
@@ -178,7 +185,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 Expanded(
                   child: _buildDetailItem(
                     FontAwesomeIcons.wind,
-                    'Wind Speed',
+                    l10n?.windSpeed ?? 'Wind Speed',
                     '${weather.windSpeed.toStringAsFixed(1)} km/h',
                     Colors.grey[600]!,
                   ),
@@ -191,7 +198,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 Expanded(
                   child: _buildDetailItem(
                     FontAwesomeIcons.eye,
-                    'Visibility',
+                    l10n?.visibility ?? 'Visibility',
                     '10 km',
                     Colors.purple,
                   ),
@@ -199,7 +206,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 Expanded(
                   child: _buildDetailItem(
                     FontAwesomeIcons.thermometer,
-                    'Feels Like',
+                    l10n?.feelsLike ?? 'Feels Like',
                     '${weather.feelsLike.toStringAsFixed(0)}°C',
                     Colors.orange,
                   ),
@@ -213,6 +220,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
   }
 
   Widget _buildFarmingRecommendationsCard(List<String> recommendations) {
+    final l10n = AppLocalizations.of(context);
+    
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -226,7 +235,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 const Icon(FontAwesomeIcons.seedling, color: Colors.green),
                 const SizedBox(width: 8),
                 Text(
-                  'Farming Recommendations',
+                  l10n?.farmingRecommendations ?? 'Farming Recommendations',
                   style: GoogleFonts.poppins(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
@@ -282,6 +291,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
   }
 
   Widget _buildErrorCard(String error) {
+    final l10n = AppLocalizations.of(context);
+    
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -293,7 +304,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
             const Icon(Icons.error_outline, size: 64, color: Colors.red),
             const SizedBox(height: 16),
             Text(
-              'Weather Error',
+              l10n?.weatherError ?? 'Weather Error',
               style: GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
@@ -303,7 +314,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
               onPressed: () {
                 Provider.of<WeatherProvider>(context, listen: false).fetchWeather();
               },
-              child: const Text('Retry'),
+              child: Text(l10n?.retry ?? 'Retry'),
             ),
           ],
         ),
@@ -312,6 +323,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
   }
 
   Widget _buildNoDataCard() {
+    final l10n = AppLocalizations.of(context);
+    
     return Card(
       elevation: 4,
       child: SizedBox(
@@ -323,7 +336,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
               Icon(Icons.cloud_off, size: 64, color: Colors.grey[400]),
               const SizedBox(height: 16),
               Text(
-                'No Weather Data',
+                l10n?.noWeatherData ?? 'No Weather Data',
                 style: GoogleFonts.poppins(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
