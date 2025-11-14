@@ -124,6 +124,78 @@ class AppLocalizationsEn extends AppLocalizations {
   String get applyNow => 'Apply Now';
 
   @override
+  String get schemesAvailable => 'schemes';
+
+  @override
+  String get showingSchemes => 'Showing schemes for:';
+
+  @override
+  String get allCategories => 'All';
+
+  @override
+  String get benefits => 'Benefits';
+
+  @override
+  String get ministry => 'Ministry';
+
+  @override
+  String get region => 'Region';
+
+  @override
+  String get category => 'Category';
+
+  @override
+  String get schemeStatus => 'Status';
+
+  @override
+  String get noSchemesAvailable => 'No schemes available';
+
+  @override
+  String get schemeDetails => 'Scheme Details';
+
+  @override
+  String get unableToOpenLink => 'Unable to open link';
+
+  @override
+  String get categoryIncomeSupport => 'Income Support';
+
+  @override
+  String get categoryInsurance => 'Insurance';
+
+  @override
+  String get categoryEnergy => 'Energy & Infrastructure';
+
+  @override
+  String get categoryIrrigation => 'Irrigation';
+
+  @override
+  String get categoryCredit => 'Credit & Finance';
+
+  @override
+  String get categorySoilManagement => 'Soil Management';
+
+  @override
+  String get categoryMarketAccess => 'Market Access';
+
+  @override
+  String get categoryOrganicFarming => 'Organic Farming';
+
+  @override
+  String get categoryHorticulture => 'Horticulture';
+
+  @override
+  String get categoryMechanization => 'Mechanization';
+
+  @override
+  String get categoryFPOSupport => 'FPO Support';
+
+  @override
+  String get categoryInputSubsidy => 'Input Subsidy';
+
+  @override
+  String get allIndia => 'All India';
+
+  @override
   String get language => 'Language';
 
   @override

@@ -326,6 +326,150 @@ abstract class AppLocalizations {
   /// **'Apply Now'**
   String get applyNow;
 
+  /// No description provided for @schemesAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'schemes'**
+  String get schemesAvailable;
+
+  /// No description provided for @showingSchemes.
+  ///
+  /// In en, this message translates to:
+  /// **'Showing schemes for:'**
+  String get showingSchemes;
+
+  /// No description provided for @allCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get allCategories;
+
+  /// No description provided for @benefits.
+  ///
+  /// In en, this message translates to:
+  /// **'Benefits'**
+  String get benefits;
+
+  /// No description provided for @ministry.
+  ///
+  /// In en, this message translates to:
+  /// **'Ministry'**
+  String get ministry;
+
+  /// No description provided for @region.
+  ///
+  /// In en, this message translates to:
+  /// **'Region'**
+  String get region;
+
+  /// No description provided for @category.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get category;
+
+  /// No description provided for @schemeStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get schemeStatus;
+
+  /// No description provided for @noSchemesAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No schemes available'**
+  String get noSchemesAvailable;
+
+  /// No description provided for @schemeDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Scheme Details'**
+  String get schemeDetails;
+
+  /// No description provided for @unableToOpenLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to open link'**
+  String get unableToOpenLink;
+
+  /// No description provided for @categoryIncomeSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Income Support'**
+  String get categoryIncomeSupport;
+
+  /// No description provided for @categoryInsurance.
+  ///
+  /// In en, this message translates to:
+  /// **'Insurance'**
+  String get categoryInsurance;
+
+  /// No description provided for @categoryEnergy.
+  ///
+  /// In en, this message translates to:
+  /// **'Energy & Infrastructure'**
+  String get categoryEnergy;
+
+  /// No description provided for @categoryIrrigation.
+  ///
+  /// In en, this message translates to:
+  /// **'Irrigation'**
+  String get categoryIrrigation;
+
+  /// No description provided for @categoryCredit.
+  ///
+  /// In en, this message translates to:
+  /// **'Credit & Finance'**
+  String get categoryCredit;
+
+  /// No description provided for @categorySoilManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'Soil Management'**
+  String get categorySoilManagement;
+
+  /// No description provided for @categoryMarketAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Market Access'**
+  String get categoryMarketAccess;
+
+  /// No description provided for @categoryOrganicFarming.
+  ///
+  /// In en, this message translates to:
+  /// **'Organic Farming'**
+  String get categoryOrganicFarming;
+
+  /// No description provided for @categoryHorticulture.
+  ///
+  /// In en, this message translates to:
+  /// **'Horticulture'**
+  String get categoryHorticulture;
+
+  /// No description provided for @categoryMechanization.
+  ///
+  /// In en, this message translates to:
+  /// **'Mechanization'**
+  String get categoryMechanization;
+
+  /// No description provided for @categoryFPOSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'FPO Support'**
+  String get categoryFPOSupport;
+
+  /// No description provided for @categoryInputSubsidy.
+  ///
+  /// In en, this message translates to:
+  /// **'Input Subsidy'**
+  String get categoryInputSubsidy;
+
+  /// No description provided for @allIndia.
+  ///
+  /// In en, this message translates to:
+  /// **'All India'**
+  String get allIndia;
+
   /// No description provided for @language.
   ///
   /// In en, this message translates to:
