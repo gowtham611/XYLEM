@@ -285,6 +285,115 @@ class AppLocalizationsKn extends AppLocalizations {
   String get marketError => 'ಮಾರುಕಟ್ಟೆ ದೋಷ';
 
   @override
+  String get selectState => 'ರಾಜ್ಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ';
+
+  @override
+  String get searchCropOrMarket => 'ಬೆಳೆ ಅಥವಾ ಮಾರುಕಟ್ಟೆಯನ್ನು ಹುಡುಕಿ';
+
+  @override
+  String get commodityPrices => 'ಸರಕು ಬೆಲೆಗಳು';
+
+  @override
+  String get perQuintal => 'ಕ್ವಿಂಟಾಲ್';
+
+  @override
+  String get risingPrices => 'ಏರುತ್ತಿರುವ ಬೆಲೆಗಳು';
+
+  @override
+  String get fallingPrices => 'ಕುಸಿಯುತ್ತಿರುವ ಬೆಲೆಗಳು';
+
+  @override
+  String get noMarketNewsAvailable => 'ಯಾವುದೇ ಮಾರುಕಟ್ಟೆ ಸುದ್ದಿ ಲಭ್ಯವಿಲ್ಲ';
+
+  @override
+  String get failedToLoadMarketData =>
+      'ಮಾರುಕಟ್ಟೆ ಡೇಟಾವನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ';
+
+  @override
+  String get stateAndhraPradesh => 'ಆಂಧ್ರ ಪ್ರದೇಶ';
+
+  @override
+  String get stateArunachalPradesh => 'ಅರುಣಾಚಲ ಪ್ರದೇಶ';
+
+  @override
+  String get stateAssam => 'ಅಸ್ಸಾಂ';
+
+  @override
+  String get stateBihar => 'ಬಿಹಾರ';
+
+  @override
+  String get stateChhattisgarh => 'ಛತ್ತೀಸ್‌ಗಢ';
+
+  @override
+  String get stateGoa => 'ಗೋವಾ';
+
+  @override
+  String get stateGujarat => 'ಗುಜರಾತ್';
+
+  @override
+  String get stateHaryana => 'ಹರಿಯಾಣ';
+
+  @override
+  String get stateHimachalPradesh => 'ಹಿಮಾಚಲ ಪ್ರದೇಶ';
+
+  @override
+  String get stateJharkhand => 'ಝಾರ್ಖಂಡ್';
+
+  @override
+  String get stateKarnataka => 'ಕರ್ನಾಟಕ';
+
+  @override
+  String get stateKerala => 'ಕೇರಳ';
+
+  @override
+  String get stateMadhyaPradesh => 'ಮಧ್ಯ ಪ್ರದೇಶ';
+
+  @override
+  String get stateMaharashtra => 'ಮಹಾರಾಷ್ಟ್ರ';
+
+  @override
+  String get stateManipur => 'ಮಣಿಪುರ';
+
+  @override
+  String get stateMeghalaya => 'ಮೇಘಾಲಯ';
+
+  @override
+  String get stateMizoram => 'ಮಿಜೋರಾಂ';
+
+  @override
+  String get stateNagaland => 'ನಾಗಾಲ್ಯಾಂಡ್';
+
+  @override
+  String get stateOdisha => 'ಒಡಿಶಾ';
+
+  @override
+  String get statePunjab => 'ಪಂಜಾಬ್';
+
+  @override
+  String get stateRajasthan => 'ರಾಜಸ್ಥಾನ';
+
+  @override
+  String get stateSikkim => 'ಸಿಕ್ಕಿಂ';
+
+  @override
+  String get stateTamilNadu => 'ತಮಿಳುನಾಡು';
+
+  @override
+  String get stateTelangana => 'ತೆಲಂಗಾಣ';
+
+  @override
+  String get stateTripura => 'ತ್ರಿಪುರಾ';
+
+  @override
+  String get stateUttarPradesh => 'ಉತ್ತರ ಪ್ರದೇಶ';
+
+  @override
+  String get stateUttarakhand => 'ಉತ್ತರಾಖಂಡ';
+
+  @override
+  String get stateWestBengal => 'ಪಶ್ಚಿಮ ಬಂಗಾಳ';
+
+  @override
   String get loadingWeatherData => 'ಹವಾಮಾನ ಡೇಟಾ ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...';
 
   @override
@@ -661,6 +770,219 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get cropCoffee => 'ಕಾಫಿ';
+
+  @override
+  String get cropWheat => 'ಗೋಧಿ';
+
+  @override
+  String get cropBarley => 'ಬಾರ್ಲಿ';
+
+  @override
+  String get cropSorghum => 'ಜೋಳ';
+
+  @override
+  String get cropPearl => 'ಸಜ್ಜೆ';
+
+  @override
+  String get cropFinger => 'ರಾಗಿ';
+
+  @override
+  String get cropOnion => 'ಈರುಳ್ಳಿ';
+
+  @override
+  String get cropTomato => 'ಟೊಮೇಟೊ';
+
+  @override
+  String get cropPotato => 'ಆಲೂಗಡ್ಡೆ';
+
+  @override
+  String get cropBrinjal => 'ಬದನೇಕಾಯಿ';
+
+  @override
+  String get cropCauliflower => 'ಹೂಕೋಸು';
+
+  @override
+  String get cropCabbage => 'ಎಲೆಕೋಸು';
+
+  @override
+  String get cropCarrot => 'ಕ್ಯಾರೆಟ್';
+
+  @override
+  String get cropChilli => 'ಮೆಣಸಿನಕಾಯಿ';
+
+  @override
+  String get cropCoriander => 'ಕೊತ್ತಂಬರಿ';
+
+  @override
+  String get cropGarlic => 'ಬೆಳ್ಳುಳ್ಳಿ';
+
+  @override
+  String get cropGinger => 'ಶುಂಠಿ';
+
+  @override
+  String get cropLadyFinger => 'ಬೆಂಡೆಕಾಯಿ';
+
+  @override
+  String get cropTurmeric => 'ಅರಿಶಿನ';
+
+  @override
+  String get cropGroundnut => 'ಕಡಲೆಕಾಯಿ';
+
+  @override
+  String get cropSoybean => 'ಸೋಯಾಬೀನ್';
+
+  @override
+  String get cropSunflower => 'ಸೂರ್ಯಕಾಂತಿ';
+
+  @override
+  String get cropMustard => 'ಸಾಸಿವೆ';
+
+  @override
+  String get cropSesame => 'ಎಳ್ಳು';
+
+  @override
+  String get cropCastor => 'ಹರಳು';
+
+  @override
+  String get cropSugarcane => 'ಕಬ್ಬು';
+
+  @override
+  String get cropTea => 'ಚಹಾ';
+
+  @override
+  String get cropCardamom => 'ಏಲಕ್ಕಿ';
+
+  @override
+  String get cropBlackPepper => 'ಕರಿಮೆಣಸು';
+
+  @override
+  String get cropBeetleLeaf => 'ವೀಳ್ಯದೆಲೆ';
+
+  @override
+  String get cropAreca => 'ಅಡಿಕೆ';
+
+  @override
+  String get cropCashew => 'ಗೋಡಂಬಿ';
+
+  @override
+  String get cropGuava => 'ಪೇರಲ';
+
+  @override
+  String get cropSapota => 'ಸಪೋಟ';
+
+  @override
+  String get cropPineapple => 'ಅನಾನಸ್';
+
+  @override
+  String get cropLemon => 'ನಿಂಬೆ';
+
+  @override
+  String get cropSweet => 'ಮೋಸಂಬಿ';
+
+  @override
+  String get cropCucumber => 'ಸೌತೆಕಾಯಿ';
+
+  @override
+  String get cropBitterGourd => 'ಹಾಗಲಕಾಯಿ';
+
+  @override
+  String get cropBottleGourd => 'ಸೋರೆಕಾಯಿ';
+
+  @override
+  String get cropRidgeGourd => 'ಹೀರೆಕಾಯಿ';
+
+  @override
+  String get cropPumpkin => 'ಕುಂಬಳಕಾಯಿ';
+
+  @override
+  String get cropDrumstick => 'ನುಗ್ಗೆಕಾಯಿ';
+
+  @override
+  String get cropBeans => 'ಅವರೆಕಾಯಿ';
+
+  @override
+  String get cropPeas => 'ಬಟಾಣಿ';
+
+  @override
+  String get cropRadish => 'ಮೂಲಂಗಿ';
+
+  @override
+  String get cropSpinach => 'ಪಾಲಕ';
+
+  @override
+  String get cropFenugreek => 'ಮೆಂತೆ';
+
+  @override
+  String get cropMint => 'ಪುದೀನಾ';
+
+  @override
+  String get cropCurryLeaves => 'ಕರಿಬೇವು';
+
+  @override
+  String get cropAshGourd => 'ಬೂದುಕುಂಬಳಕಾಯಿ';
+
+  @override
+  String get cropAmaranthus => 'ತೋಟಕೂರ ';
+
+  @override
+  String get cropCapsicum => 'ದೋಣ ಮೆಣಸಿನಕಾಯಿ';
+
+  @override
+  String get cropBeet => 'ಬೀಟ್ರೂಟ್';
+
+  @override
+  String get cropSnakeGourd => 'ಪಡವಲ ಕಾಯಿ';
+
+  @override
+  String get cropClusterBeans => 'ಗೋರಕಾಯಿ';
+
+  @override
+  String get cropElephantYam => 'ಸೂರಣ';
+
+  @override
+  String get cropLittleGourd => 'ಕುಂದುರು';
+
+  @override
+  String get cropRatTailRadish => 'ಮೋಗರಿ';
+
+  @override
+  String get cropPeasCod => 'ಬಟಾಣಿ';
+
+  @override
+  String get cropSweetPumpkin => 'ಸಿಹಿ ಕುಂಬಳಕಾಯಿ';
+
+  @override
+  String get cropRidgeGuard => 'ಹೀರೆಕಾಯಿ';
+
+  @override
+  String get cropTenderCoconut => 'ಎಳನೀರು';
+
+  @override
+  String get cropPaddy => 'ಧಾನ್ಯ';
+
+  @override
+  String get cropMethi => 'ಮೆಂತೆ ಸೊಪ್ಪು';
+
+  @override
+  String get cropTurnip => 'ನವಿಲುಕೋಸು';
+
+  @override
+  String get cropPapayaRaw => 'ಹಸಿ ಪಪ್ಪಾಯಿ';
+
+  @override
+  String get cropBroadBeans => 'ಅವರೆಕಾಯಿ';
+
+  @override
+  String get cropTondekai => 'ತೊಂಡೆಕಾಯಿ';
+
+  @override
+  String get cropHorseGram => 'ಹುರುಳಿ';
+
+  @override
+  String get cropKnolKhol => 'ನವಿಲ್ ಕೋಸು';
+
+  @override
+  String get cropGreenAvare => 'ಹಸಿರು ಅವರೆ';
 
   @override
   String get soil => 'ಮಣ್ಣು';

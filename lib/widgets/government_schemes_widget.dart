@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../providers/govt_schemes_provider.dart';
 
 class GovernmentSchemesWidget extends StatefulWidget {
   const GovernmentSchemesWidget({super.key});
 
   @override
-  _GovernmentSchemesWidgetState createState() => _GovernmentSchemesWidgetState();
+  _GovernmentSchemesWidgetState createState() =>
+      _GovernmentSchemesWidgetState();
 }
 
 class _GovernmentSchemesWidgetState extends State<GovernmentSchemesWidget> {
@@ -24,50 +26,28 @@ class _GovernmentSchemesWidgetState extends State<GovernmentSchemesWidget> {
       builder: (context, provider, child) {
         if (provider.isLoading) {
           return const Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircularProgressIndicator(),
-                SizedBox(height: 16),
-                Text('Searching schemes for your region...'),
-              ],
-            ),
+            child: CircularProgressIndicator(),
           );
         }
 
         if (provider.error.isNotEmpty) {
           return Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(Icons.error, size: 64, color: Colors.red),
+                const Icon(Icons.error, size: 60, color: Colors.red),
                 const SizedBox(height: 16),
-                Text('Error: ${provider.error}'),
-                const SizedBox(height: 16),
+                Text(provider.error),
                 ElevatedButton(
-                  onPressed: () => provider.fetchSchemes(),
-                  child: const Text('Retry'),
-                ),
+                    onPressed: () => provider.fetchSchemes(),
+                    child: const Text("Retry")),
               ],
             ),
           );
         }
 
         if (provider.schemes.isEmpty) {
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.info, size: 64, color: Colors.grey),
-                const SizedBox(height: 16),
-                const Text('No schemes found for your region'),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () => provider.refreshSchemes(),
-                  child: const Text('Refresh'),
-                ),
-              ],
-            ),
+          return const Center(
+            child: Text("No schemes available"),
           );
         }
 
@@ -82,8 +62,7 @@ class _GovernmentSchemesWidgetState extends State<GovernmentSchemesWidget> {
                 elevation: 4,
                 margin: const EdgeInsets.only(bottom: 16),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                    borderRadius: BorderRadius.circular(12)),
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(
@@ -91,37 +70,36 @@ class _GovernmentSchemesWidgetState extends State<GovernmentSchemesWidget> {
                     children: [
                       Text(
                         scheme.name,
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: const Color(0xFF4CAF50),
-                        ),
+                        style: const TextStyle(
+                            fontSize: 18,
+                            color: Colors.green,
+                            fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(height: 8),
-                      Text(
-                        scheme.description,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
+                      const SizedBox(height: 10),
+                      Text(scheme.description),
                       const SizedBox(height: 12),
-                      _buildSchemeDetail('Eligibility', scheme.eligibility),
-                      _buildSchemeDetail('Amount', scheme.amount),
-                      _buildSchemeDetail('Deadline', scheme.deadline),
+                      Text("Eligibility: ${scheme.eligibility}"),
+                      Text("Benefits: ${scheme.amount}"),
+                      Text("Deadline: ${scheme.deadline}"),
                       const SizedBox(height: 16),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {
-                            // Open scheme application link
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Opening application form...')),
-                            );
+                          onPressed: () async {
+                            Uri url = Uri.parse(scheme.applyLink);
+                            if (await canLaunchUrl(url)) {
+                              await launchUrl(url,
+                                  mode: LaunchMode.externalApplication);
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text("Unable to open link")),
+                              );
+                            }
                           },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF4CAF50),
-                            foregroundColor: Colors.white,
-                          ),
-                          child: const Text('Apply Now'),
+                          child: const Text("Apply Now"),
                         ),
-                      ),
+                      )
                     ],
                   ),
                 ),
@@ -130,27 +108,6 @@ class _GovernmentSchemesWidgetState extends State<GovernmentSchemesWidget> {
           ),
         );
       },
-    );
-  }
-
-  Widget _buildSchemeDetail(String label, String value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            '$label: ',
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-          ),
-          Expanded(
-            child: Text(
-              value,
-              style: const TextStyle(fontSize: 14),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

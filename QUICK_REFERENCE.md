@@ -1,5 +1,25 @@
 # 🚀 Quick Start: Using Kannada Localization
 
+## 📰 Dynamic News Feature (NEW!)
+
+The News section now fetches real agricultural news from APIs!
+
+### Setup (Required for live news):
+1. Get a free API key from [NewsAPI.org](https://newsapi.org/)
+2. Open `lib/services/news_api_service.dart`
+3. Replace `'YOUR_NEWS_API_KEY'` with your actual key
+4. See `NEWS_API_SETUP.md` for detailed instructions
+
+### Features:
+- ✅ Real-time agricultural news from 80,000+ sources
+- ✅ News images and thumbnails
+- ✅ Automatic impact analysis (positive/negative/neutral)
+- ✅ Tap to read full articles in browser
+- ✅ Pull-to-refresh for latest updates
+- ✅ Works offline with fallback content
+
+---
+
 ## Copy-Paste Template
 
 ```dart

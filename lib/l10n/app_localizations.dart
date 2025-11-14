@@ -644,6 +644,222 @@ abstract class AppLocalizations {
   /// **'Market Error'**
   String get marketError;
 
+  /// No description provided for @selectState.
+  ///
+  /// In en, this message translates to:
+  /// **'Select State'**
+  String get selectState;
+
+  /// No description provided for @searchCropOrMarket.
+  ///
+  /// In en, this message translates to:
+  /// **'Search crop or market'**
+  String get searchCropOrMarket;
+
+  /// No description provided for @commodityPrices.
+  ///
+  /// In en, this message translates to:
+  /// **'Commodity Prices'**
+  String get commodityPrices;
+
+  /// No description provided for @perQuintal.
+  ///
+  /// In en, this message translates to:
+  /// **'quintal'**
+  String get perQuintal;
+
+  /// No description provided for @risingPrices.
+  ///
+  /// In en, this message translates to:
+  /// **'Rising Prices'**
+  String get risingPrices;
+
+  /// No description provided for @fallingPrices.
+  ///
+  /// In en, this message translates to:
+  /// **'Falling Prices'**
+  String get fallingPrices;
+
+  /// No description provided for @noMarketNewsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No market news available'**
+  String get noMarketNewsAvailable;
+
+  /// No description provided for @failedToLoadMarketData.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load market data'**
+  String get failedToLoadMarketData;
+
+  /// No description provided for @stateAndhraPradesh.
+  ///
+  /// In en, this message translates to:
+  /// **'Andhra Pradesh'**
+  String get stateAndhraPradesh;
+
+  /// No description provided for @stateArunachalPradesh.
+  ///
+  /// In en, this message translates to:
+  /// **'Arunachal Pradesh'**
+  String get stateArunachalPradesh;
+
+  /// No description provided for @stateAssam.
+  ///
+  /// In en, this message translates to:
+  /// **'Assam'**
+  String get stateAssam;
+
+  /// No description provided for @stateBihar.
+  ///
+  /// In en, this message translates to:
+  /// **'Bihar'**
+  String get stateBihar;
+
+  /// No description provided for @stateChhattisgarh.
+  ///
+  /// In en, this message translates to:
+  /// **'Chhattisgarh'**
+  String get stateChhattisgarh;
+
+  /// No description provided for @stateGoa.
+  ///
+  /// In en, this message translates to:
+  /// **'Goa'**
+  String get stateGoa;
+
+  /// No description provided for @stateGujarat.
+  ///
+  /// In en, this message translates to:
+  /// **'Gujarat'**
+  String get stateGujarat;
+
+  /// No description provided for @stateHaryana.
+  ///
+  /// In en, this message translates to:
+  /// **'Haryana'**
+  String get stateHaryana;
+
+  /// No description provided for @stateHimachalPradesh.
+  ///
+  /// In en, this message translates to:
+  /// **'Himachal Pradesh'**
+  String get stateHimachalPradesh;
+
+  /// No description provided for @stateJharkhand.
+  ///
+  /// In en, this message translates to:
+  /// **'Jharkhand'**
+  String get stateJharkhand;
+
+  /// No description provided for @stateKarnataka.
+  ///
+  /// In en, this message translates to:
+  /// **'Karnataka'**
+  String get stateKarnataka;
+
+  /// No description provided for @stateKerala.
+  ///
+  /// In en, this message translates to:
+  /// **'Kerala'**
+  String get stateKerala;
+
+  /// No description provided for @stateMadhyaPradesh.
+  ///
+  /// In en, this message translates to:
+  /// **'Madhya Pradesh'**
+  String get stateMadhyaPradesh;
+
+  /// No description provided for @stateMaharashtra.
+  ///
+  /// In en, this message translates to:
+  /// **'Maharashtra'**
+  String get stateMaharashtra;
+
+  /// No description provided for @stateManipur.
+  ///
+  /// In en, this message translates to:
+  /// **'Manipur'**
+  String get stateManipur;
+
+  /// No description provided for @stateMeghalaya.
+  ///
+  /// In en, this message translates to:
+  /// **'Meghalaya'**
+  String get stateMeghalaya;
+
+  /// No description provided for @stateMizoram.
+  ///
+  /// In en, this message translates to:
+  /// **'Mizoram'**
+  String get stateMizoram;
+
+  /// No description provided for @stateNagaland.
+  ///
+  /// In en, this message translates to:
+  /// **'Nagaland'**
+  String get stateNagaland;
+
+  /// No description provided for @stateOdisha.
+  ///
+  /// In en, this message translates to:
+  /// **'Odisha'**
+  String get stateOdisha;
+
+  /// No description provided for @statePunjab.
+  ///
+  /// In en, this message translates to:
+  /// **'Punjab'**
+  String get statePunjab;
+
+  /// No description provided for @stateRajasthan.
+  ///
+  /// In en, this message translates to:
+  /// **'Rajasthan'**
+  String get stateRajasthan;
+
+  /// No description provided for @stateSikkim.
+  ///
+  /// In en, this message translates to:
+  /// **'Sikkim'**
+  String get stateSikkim;
+
+  /// No description provided for @stateTamilNadu.
+  ///
+  /// In en, this message translates to:
+  /// **'Tamil Nadu'**
+  String get stateTamilNadu;
+
+  /// No description provided for @stateTelangana.
+  ///
+  /// In en, this message translates to:
+  /// **'Telangana'**
+  String get stateTelangana;
+
+  /// No description provided for @stateTripura.
+  ///
+  /// In en, this message translates to:
+  /// **'Tripura'**
+  String get stateTripura;
+
+  /// No description provided for @stateUttarPradesh.
+  ///
+  /// In en, this message translates to:
+  /// **'Uttar Pradesh'**
+  String get stateUttarPradesh;
+
+  /// No description provided for @stateUttarakhand.
+  ///
+  /// In en, this message translates to:
+  /// **'Uttarakhand'**
+  String get stateUttarakhand;
+
+  /// No description provided for @stateWestBengal.
+  ///
+  /// In en, this message translates to:
+  /// **'West Bengal'**
+  String get stateWestBengal;
+
   /// No description provided for @loadingWeatherData.
   ///
   /// In en, this message translates to:
@@ -1369,6 +1585,432 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Coffee'**
   String get cropCoffee;
+
+  /// No description provided for @cropWheat.
+  ///
+  /// In en, this message translates to:
+  /// **'Wheat'**
+  String get cropWheat;
+
+  /// No description provided for @cropBarley.
+  ///
+  /// In en, this message translates to:
+  /// **'Barley'**
+  String get cropBarley;
+
+  /// No description provided for @cropSorghum.
+  ///
+  /// In en, this message translates to:
+  /// **'Sorghum'**
+  String get cropSorghum;
+
+  /// No description provided for @cropPearl.
+  ///
+  /// In en, this message translates to:
+  /// **'Pearl Millet'**
+  String get cropPearl;
+
+  /// No description provided for @cropFinger.
+  ///
+  /// In en, this message translates to:
+  /// **'Finger Millet'**
+  String get cropFinger;
+
+  /// No description provided for @cropOnion.
+  ///
+  /// In en, this message translates to:
+  /// **'Onion'**
+  String get cropOnion;
+
+  /// No description provided for @cropTomato.
+  ///
+  /// In en, this message translates to:
+  /// **'Tomato'**
+  String get cropTomato;
+
+  /// No description provided for @cropPotato.
+  ///
+  /// In en, this message translates to:
+  /// **'Potato'**
+  String get cropPotato;
+
+  /// No description provided for @cropBrinjal.
+  ///
+  /// In en, this message translates to:
+  /// **'Brinjal'**
+  String get cropBrinjal;
+
+  /// No description provided for @cropCauliflower.
+  ///
+  /// In en, this message translates to:
+  /// **'Cauliflower'**
+  String get cropCauliflower;
+
+  /// No description provided for @cropCabbage.
+  ///
+  /// In en, this message translates to:
+  /// **'Cabbage'**
+  String get cropCabbage;
+
+  /// No description provided for @cropCarrot.
+  ///
+  /// In en, this message translates to:
+  /// **'Carrot'**
+  String get cropCarrot;
+
+  /// No description provided for @cropChilli.
+  ///
+  /// In en, this message translates to:
+  /// **'Chilli'**
+  String get cropChilli;
+
+  /// No description provided for @cropCoriander.
+  ///
+  /// In en, this message translates to:
+  /// **'Coriander'**
+  String get cropCoriander;
+
+  /// No description provided for @cropGarlic.
+  ///
+  /// In en, this message translates to:
+  /// **'Garlic'**
+  String get cropGarlic;
+
+  /// No description provided for @cropGinger.
+  ///
+  /// In en, this message translates to:
+  /// **'Ginger'**
+  String get cropGinger;
+
+  /// No description provided for @cropLadyFinger.
+  ///
+  /// In en, this message translates to:
+  /// **'Lady Finger'**
+  String get cropLadyFinger;
+
+  /// No description provided for @cropTurmeric.
+  ///
+  /// In en, this message translates to:
+  /// **'Turmeric'**
+  String get cropTurmeric;
+
+  /// No description provided for @cropGroundnut.
+  ///
+  /// In en, this message translates to:
+  /// **'Groundnut'**
+  String get cropGroundnut;
+
+  /// No description provided for @cropSoybean.
+  ///
+  /// In en, this message translates to:
+  /// **'Soybean'**
+  String get cropSoybean;
+
+  /// No description provided for @cropSunflower.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunflower'**
+  String get cropSunflower;
+
+  /// No description provided for @cropMustard.
+  ///
+  /// In en, this message translates to:
+  /// **'Mustard'**
+  String get cropMustard;
+
+  /// No description provided for @cropSesame.
+  ///
+  /// In en, this message translates to:
+  /// **'Sesame'**
+  String get cropSesame;
+
+  /// No description provided for @cropCastor.
+  ///
+  /// In en, this message translates to:
+  /// **'Castor'**
+  String get cropCastor;
+
+  /// No description provided for @cropSugarcane.
+  ///
+  /// In en, this message translates to:
+  /// **'Sugarcane'**
+  String get cropSugarcane;
+
+  /// No description provided for @cropTea.
+  ///
+  /// In en, this message translates to:
+  /// **'Tea'**
+  String get cropTea;
+
+  /// No description provided for @cropCardamom.
+  ///
+  /// In en, this message translates to:
+  /// **'Cardamom'**
+  String get cropCardamom;
+
+  /// No description provided for @cropBlackPepper.
+  ///
+  /// In en, this message translates to:
+  /// **'Black Pepper'**
+  String get cropBlackPepper;
+
+  /// No description provided for @cropBeetleLeaf.
+  ///
+  /// In en, this message translates to:
+  /// **'Beetle Leaf'**
+  String get cropBeetleLeaf;
+
+  /// No description provided for @cropAreca.
+  ///
+  /// In en, this message translates to:
+  /// **'Areca Nut'**
+  String get cropAreca;
+
+  /// No description provided for @cropCashew.
+  ///
+  /// In en, this message translates to:
+  /// **'Cashew'**
+  String get cropCashew;
+
+  /// No description provided for @cropGuava.
+  ///
+  /// In en, this message translates to:
+  /// **'Guava'**
+  String get cropGuava;
+
+  /// No description provided for @cropSapota.
+  ///
+  /// In en, this message translates to:
+  /// **'Sapota'**
+  String get cropSapota;
+
+  /// No description provided for @cropPineapple.
+  ///
+  /// In en, this message translates to:
+  /// **'Pineapple'**
+  String get cropPineapple;
+
+  /// No description provided for @cropLemon.
+  ///
+  /// In en, this message translates to:
+  /// **'Lemon'**
+  String get cropLemon;
+
+  /// No description provided for @cropSweet.
+  ///
+  /// In en, this message translates to:
+  /// **'Sweet Lime'**
+  String get cropSweet;
+
+  /// No description provided for @cropCucumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Cucumber'**
+  String get cropCucumber;
+
+  /// No description provided for @cropBitterGourd.
+  ///
+  /// In en, this message translates to:
+  /// **'Bitter Gourd'**
+  String get cropBitterGourd;
+
+  /// No description provided for @cropBottleGourd.
+  ///
+  /// In en, this message translates to:
+  /// **'Bottle Gourd'**
+  String get cropBottleGourd;
+
+  /// No description provided for @cropRidgeGourd.
+  ///
+  /// In en, this message translates to:
+  /// **'Ridge Gourd'**
+  String get cropRidgeGourd;
+
+  /// No description provided for @cropPumpkin.
+  ///
+  /// In en, this message translates to:
+  /// **'Pumpkin'**
+  String get cropPumpkin;
+
+  /// No description provided for @cropDrumstick.
+  ///
+  /// In en, this message translates to:
+  /// **'Drumstick'**
+  String get cropDrumstick;
+
+  /// No description provided for @cropBeans.
+  ///
+  /// In en, this message translates to:
+  /// **'Beans'**
+  String get cropBeans;
+
+  /// No description provided for @cropPeas.
+  ///
+  /// In en, this message translates to:
+  /// **'Peas'**
+  String get cropPeas;
+
+  /// No description provided for @cropRadish.
+  ///
+  /// In en, this message translates to:
+  /// **'Radish'**
+  String get cropRadish;
+
+  /// No description provided for @cropSpinach.
+  ///
+  /// In en, this message translates to:
+  /// **'Spinach'**
+  String get cropSpinach;
+
+  /// No description provided for @cropFenugreek.
+  ///
+  /// In en, this message translates to:
+  /// **'Fenugreek'**
+  String get cropFenugreek;
+
+  /// No description provided for @cropMint.
+  ///
+  /// In en, this message translates to:
+  /// **'Mint'**
+  String get cropMint;
+
+  /// No description provided for @cropCurryLeaves.
+  ///
+  /// In en, this message translates to:
+  /// **'Curry Leaves'**
+  String get cropCurryLeaves;
+
+  /// No description provided for @cropAshGourd.
+  ///
+  /// In en, this message translates to:
+  /// **'Ashgourd'**
+  String get cropAshGourd;
+
+  /// No description provided for @cropAmaranthus.
+  ///
+  /// In en, this message translates to:
+  /// **'Amaranthus'**
+  String get cropAmaranthus;
+
+  /// No description provided for @cropCapsicum.
+  ///
+  /// In en, this message translates to:
+  /// **'Capsicum'**
+  String get cropCapsicum;
+
+  /// No description provided for @cropBeet.
+  ///
+  /// In en, this message translates to:
+  /// **'Beetroot'**
+  String get cropBeet;
+
+  /// No description provided for @cropSnakeGourd.
+  ///
+  /// In en, this message translates to:
+  /// **'Snake Gourd'**
+  String get cropSnakeGourd;
+
+  /// No description provided for @cropClusterBeans.
+  ///
+  /// In en, this message translates to:
+  /// **'Cluster Beans'**
+  String get cropClusterBeans;
+
+  /// No description provided for @cropElephantYam.
+  ///
+  /// In en, this message translates to:
+  /// **'Elephant Yam'**
+  String get cropElephantYam;
+
+  /// No description provided for @cropLittleGourd.
+  ///
+  /// In en, this message translates to:
+  /// **'Little Gourd'**
+  String get cropLittleGourd;
+
+  /// No description provided for @cropRatTailRadish.
+  ///
+  /// In en, this message translates to:
+  /// **'Rat Tail Radish'**
+  String get cropRatTailRadish;
+
+  /// No description provided for @cropPeasCod.
+  ///
+  /// In en, this message translates to:
+  /// **'Peas'**
+  String get cropPeasCod;
+
+  /// No description provided for @cropSweetPumpkin.
+  ///
+  /// In en, this message translates to:
+  /// **'Sweet Pumpkin'**
+  String get cropSweetPumpkin;
+
+  /// No description provided for @cropRidgeGuard.
+  ///
+  /// In en, this message translates to:
+  /// **'Ridge Gourd'**
+  String get cropRidgeGuard;
+
+  /// No description provided for @cropTenderCoconut.
+  ///
+  /// In en, this message translates to:
+  /// **'Tender Coconut'**
+  String get cropTenderCoconut;
+
+  /// No description provided for @cropPaddy.
+  ///
+  /// In en, this message translates to:
+  /// **'Paddy'**
+  String get cropPaddy;
+
+  /// No description provided for @cropMethi.
+  ///
+  /// In en, this message translates to:
+  /// **'Fenugreek Leaves'**
+  String get cropMethi;
+
+  /// No description provided for @cropTurnip.
+  ///
+  /// In en, this message translates to:
+  /// **'Turnip'**
+  String get cropTurnip;
+
+  /// No description provided for @cropPapayaRaw.
+  ///
+  /// In en, this message translates to:
+  /// **'Raw Papaya'**
+  String get cropPapayaRaw;
+
+  /// No description provided for @cropBroadBeans.
+  ///
+  /// In en, this message translates to:
+  /// **'Broad Beans'**
+  String get cropBroadBeans;
+
+  /// No description provided for @cropTondekai.
+  ///
+  /// In en, this message translates to:
+  /// **'Ivy Gourd'**
+  String get cropTondekai;
+
+  /// No description provided for @cropHorseGram.
+  ///
+  /// In en, this message translates to:
+  /// **'Horse Gram'**
+  String get cropHorseGram;
+
+  /// No description provided for @cropKnolKhol.
+  ///
+  /// In en, this message translates to:
+  /// **'Knol Khol'**
+  String get cropKnolKhol;
+
+  /// No description provided for @cropGreenAvare.
+  ///
+  /// In en, this message translates to:
+  /// **'Green Avare'**
+  String get cropGreenAvare;
 
   /// No description provided for @soil.
   ///
