@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import '../services/market_api_service.dart';
+import '../services/news_api_service.dart';
 
 class MarketPrice {
   final String commodity;
@@ -26,12 +27,18 @@ class MarketNews {
   final String summary;
   final String impact;
   final DateTime publishedAt;
+  final String? imageUrl;
+  final String? url;
+  final String source;
 
   MarketNews({
     required this.title,
     required this.summary,
     required this.impact,
     required this.publishedAt,
+    this.imageUrl,
+    this.url,
+    this.source = 'Unknown',
   });
 }
 
@@ -100,20 +107,82 @@ class MarketProvider with ChangeNotifier {
       _prices = parsed;
       _lastUpdated = DateTime.now();
 
-      _news = [
-        MarketNews(
-          title: "Market Updated",
-          summary: "Latest mandi data fetched from data.gov.in",
-          impact: "neutral",
-          publishedAt: DateTime.now(),
-        )
-      ];
+      // Fetch dynamic news in the background
+      _fetchDynamicNews();
     } catch (e) {
       _error = "Error: $e";
     }
 
     _isLoading = false;
     notifyListeners();
+  }
+
+  /// Fetches dynamic agriculture news from API
+  Future<void> _fetchDynamicNews() async {
+    try {
+      final newsData = await NewsApiService.fetchAgricultureNews();
+      
+      if (newsData.isEmpty) {
+        // Use fallback news if API fails
+        _setFallbackNews();
+        return;
+      }
+
+      _news = newsData.map((article) {
+        final impact = NewsApiService.analyzeNewsImpact(
+          article['title'] ?? '',
+          article['description'] ?? '',
+        );
+
+        return MarketNews(
+          title: article['title'] ?? 'No Title',
+          summary: article['description'] ?? 'No description available',
+          impact: impact,
+          publishedAt: DateTime.tryParse(article['publishedAt'] ?? '') ?? DateTime.now(),
+          imageUrl: article['urlToImage'],
+          url: article['url'],
+          source: article['source'] ?? 'Unknown',
+        );
+      }).toList();
+
+      notifyListeners();
+    } catch (e) {
+      print('Error fetching dynamic news: $e');
+      _setFallbackNews();
+    }
+  }
+
+  /// Sets fallback news when API is unavailable
+  void _setFallbackNews() {
+    _news = [
+      MarketNews(
+        title: "Market Data Updated",
+        summary: "Latest commodity prices have been updated from government sources. Check the Prices tab for current rates.",
+        impact: "neutral",
+        publishedAt: DateTime.now(),
+        source: "XYLEM App",
+      ),
+      MarketNews(
+        title: "Weather Advisory Available",
+        summary: "Check current weather conditions and farming recommendations based on local weather patterns in the Weather section.",
+        impact: "positive",
+        publishedAt: DateTime.now().subtract(const Duration(hours: 2)),
+        source: "XYLEM App",
+      ),
+      MarketNews(
+        title: "Government Schemes",
+        summary: "Various agricultural schemes and subsidies are available for farmers. Explore available government support programs.",
+        impact: "positive",
+        publishedAt: DateTime.now().subtract(const Duration(hours: 5)),
+        source: "XYLEM App",
+      ),
+    ];
+    notifyListeners();
+  }
+
+  /// Manually refresh news
+  Future<void> refreshNews() async {
+    await _fetchDynamicNews();
   }
 
   List<MarketPrice> filteredPrices(String query) {
