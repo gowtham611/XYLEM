@@ -1054,4 +1054,131 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get overall => 'Overall';
+
+  @override
+  String xaiWhyCrop(String crop) {
+    return 'Why $crop?';
+  }
+
+  @override
+  String get xaiFeatureAnalysis => 'Feature Analysis';
+
+  @override
+  String get xaiFavorableConditions => 'Favorable Conditions';
+
+  @override
+  String get xaiLimitingFactors => 'Limiting Factors';
+
+  @override
+  String get xaiAIInsight => 'AI Insight';
+
+  @override
+  String get xaiImportance => 'Importance';
+
+  @override
+  String get xaiPositiveImpact => 'Positive';
+
+  @override
+  String get xaiNegativeImpact => 'Negative';
+
+  @override
+  String get xaiNeutralImpact => 'Neutral';
+
+  @override
+  String get featureNitrogen => 'Nitrogen (N)';
+
+  @override
+  String get featurePhosphorus => 'Phosphorus (P)';
+
+  @override
+  String get featurePotassium => 'Potassium (K)';
+
+  @override
+  String get featureTemperature => 'Temperature';
+
+  @override
+  String get featureHumidity => 'Humidity';
+
+  @override
+  String get featurePH => 'Soil pH';
+
+  @override
+  String get featureRainfall => 'Rainfall';
+
+  @override
+  String get predictionHistory => 'Prediction History';
+
+  @override
+  String get noPredictionHistory => 'No Prediction History';
+
+  @override
+  String get runPredictionsToSeeHistory =>
+      'Run some predictions to see them here';
+
+  @override
+  String get statistics => 'Statistics';
+
+  @override
+  String get total => 'Total';
+
+  @override
+  String get avgConfidence => 'Avg Confidence';
+
+  @override
+  String get topCrop => 'Top Crop';
+
+  @override
+  String get clearAll => 'Clear All';
+
+  @override
+  String get clearAllPredictions => 'Clear All Predictions?';
+
+  @override
+  String get clearAllConfirmation =>
+      'This will permanently delete all prediction history. This action cannot be undone.';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get deleteAll => 'Delete All';
+
+  @override
+  String get allPredictionsCleared => 'All predictions cleared';
+
+  @override
+  String get predictionDeleted => 'Prediction deleted';
+
+  @override
+  String get errorLoadingPredictions => 'Error loading predictions';
+
+  @override
+  String get errorDeletingPrediction => 'Error deleting prediction';
+
+  @override
+  String get errorClearingPredictions => 'Error clearing predictions';
+
+  @override
+  String get sensorData => 'Sensor Data';
+
+  @override
+  String get alternativeCrops => 'Alternative Crops';
+
+  @override
+  String get predictionSaved => 'Prediction saved to database';
+
+  @override
+  String get failedToSavePrediction => 'Failed to save prediction';
+
+  @override
+  String get degreesCelsius => '°C';
+
+  @override
+  String get percentage => '%';
+
+  @override
+  String get millimeters => 'mm';
+
+  @override
+  String get delete => 'Delete';
 }

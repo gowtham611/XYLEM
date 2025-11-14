@@ -358,5 +358,58 @@
   "cropGreenAvare": "Green Avare",
   
   "soil": "Soil",
-  "overall": "Overall"
+  "overall": "Overall",
+  
+  "xaiWhyCrop": "Why {crop}?",
+  "@xaiWhyCrop": {
+    "placeholders": {
+      "crop": {
+        "type": "String"
+      }
+    }
+  },
+  "xaiFeatureAnalysis": "Feature Analysis",
+  "xaiFavorableConditions": "Favorable Conditions",
+  "xaiLimitingFactors": "Limiting Factors",
+  "xaiAIInsight": "AI Insight",
+  "xaiImportance": "Importance",
+  "xaiPositiveImpact": "Positive",
+  "xaiNegativeImpact": "Negative",
+  "xaiNeutralImpact": "Neutral",
+  
+  "featureNitrogen": "Nitrogen (N)",
+  "featurePhosphorus": "Phosphorus (P)",
+  "featurePotassium": "Potassium (K)",
+  "featureTemperature": "Temperature",
+  "featureHumidity": "Humidity",
+  "featurePH": "Soil pH",
+  "featureRainfall": "Rainfall",
+  
+  "predictionHistory": "Prediction History",
+  "noPredictionHistory": "No Prediction History",
+  "runPredictionsToSeeHistory": "Run some predictions to see them here",
+  "statistics": "Statistics",
+  "total": "Total",
+  "avgConfidence": "Avg Confidence",
+  "topCrop": "Top Crop",
+  "clearAll": "Clear All",
+  "clearAllPredictions": "Clear All Predictions?",
+  "clearAllConfirmation": "This will permanently delete all prediction history. This action cannot be undone.",
+  "cancel": "Cancel",
+  "deleteAll": "Delete All",
+  "allPredictionsCleared": "All predictions cleared",
+  "predictionDeleted": "Prediction deleted",
+  "errorLoadingPredictions": "Error loading predictions",
+  "errorDeletingPrediction": "Error deleting prediction",
+  "errorClearingPredictions": "Error clearing predictions",
+  
+  "sensorData": "Sensor Data",
+  "alternativeCrops": "Alternative Crops",
+  "predictionSaved": "Prediction saved to database",
+  "failedToSavePrediction": "Failed to save prediction",
+  
+  "degreesCelsius": "°C",
+  "percentage": "%",
+  "millimeters": "mm",
+  "delete": "Delete"
 }

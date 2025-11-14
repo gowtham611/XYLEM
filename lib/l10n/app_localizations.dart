@@ -2167,6 +2167,252 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Overall'**
   String get overall;
+
+  /// No description provided for @xaiWhyCrop.
+  ///
+  /// In en, this message translates to:
+  /// **'Why {crop}?'**
+  String xaiWhyCrop(String crop);
+
+  /// No description provided for @xaiFeatureAnalysis.
+  ///
+  /// In en, this message translates to:
+  /// **'Feature Analysis'**
+  String get xaiFeatureAnalysis;
+
+  /// No description provided for @xaiFavorableConditions.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorable Conditions'**
+  String get xaiFavorableConditions;
+
+  /// No description provided for @xaiLimitingFactors.
+  ///
+  /// In en, this message translates to:
+  /// **'Limiting Factors'**
+  String get xaiLimitingFactors;
+
+  /// No description provided for @xaiAIInsight.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Insight'**
+  String get xaiAIInsight;
+
+  /// No description provided for @xaiImportance.
+  ///
+  /// In en, this message translates to:
+  /// **'Importance'**
+  String get xaiImportance;
+
+  /// No description provided for @xaiPositiveImpact.
+  ///
+  /// In en, this message translates to:
+  /// **'Positive'**
+  String get xaiPositiveImpact;
+
+  /// No description provided for @xaiNegativeImpact.
+  ///
+  /// In en, this message translates to:
+  /// **'Negative'**
+  String get xaiNegativeImpact;
+
+  /// No description provided for @xaiNeutralImpact.
+  ///
+  /// In en, this message translates to:
+  /// **'Neutral'**
+  String get xaiNeutralImpact;
+
+  /// No description provided for @featureNitrogen.
+  ///
+  /// In en, this message translates to:
+  /// **'Nitrogen (N)'**
+  String get featureNitrogen;
+
+  /// No description provided for @featurePhosphorus.
+  ///
+  /// In en, this message translates to:
+  /// **'Phosphorus (P)'**
+  String get featurePhosphorus;
+
+  /// No description provided for @featurePotassium.
+  ///
+  /// In en, this message translates to:
+  /// **'Potassium (K)'**
+  String get featurePotassium;
+
+  /// No description provided for @featureTemperature.
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature'**
+  String get featureTemperature;
+
+  /// No description provided for @featureHumidity.
+  ///
+  /// In en, this message translates to:
+  /// **'Humidity'**
+  String get featureHumidity;
+
+  /// No description provided for @featurePH.
+  ///
+  /// In en, this message translates to:
+  /// **'Soil pH'**
+  String get featurePH;
+
+  /// No description provided for @featureRainfall.
+  ///
+  /// In en, this message translates to:
+  /// **'Rainfall'**
+  String get featureRainfall;
+
+  /// No description provided for @predictionHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Prediction History'**
+  String get predictionHistory;
+
+  /// No description provided for @noPredictionHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'No Prediction History'**
+  String get noPredictionHistory;
+
+  /// No description provided for @runPredictionsToSeeHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Run some predictions to see them here'**
+  String get runPredictionsToSeeHistory;
+
+  /// No description provided for @statistics.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics'**
+  String get statistics;
+
+  /// No description provided for @total.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get total;
+
+  /// No description provided for @avgConfidence.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg Confidence'**
+  String get avgConfidence;
+
+  /// No description provided for @topCrop.
+  ///
+  /// In en, this message translates to:
+  /// **'Top Crop'**
+  String get topCrop;
+
+  /// No description provided for @clearAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear All'**
+  String get clearAll;
+
+  /// No description provided for @clearAllPredictions.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear All Predictions?'**
+  String get clearAllPredictions;
+
+  /// No description provided for @clearAllConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'This will permanently delete all prediction history. This action cannot be undone.'**
+  String get clearAllConfirmation;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @deleteAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete All'**
+  String get deleteAll;
+
+  /// No description provided for @allPredictionsCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'All predictions cleared'**
+  String get allPredictionsCleared;
+
+  /// No description provided for @predictionDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Prediction deleted'**
+  String get predictionDeleted;
+
+  /// No description provided for @errorLoadingPredictions.
+  ///
+  /// In en, this message translates to:
+  /// **'Error loading predictions'**
+  String get errorLoadingPredictions;
+
+  /// No description provided for @errorDeletingPrediction.
+  ///
+  /// In en, this message translates to:
+  /// **'Error deleting prediction'**
+  String get errorDeletingPrediction;
+
+  /// No description provided for @errorClearingPredictions.
+  ///
+  /// In en, this message translates to:
+  /// **'Error clearing predictions'**
+  String get errorClearingPredictions;
+
+  /// No description provided for @sensorData.
+  ///
+  /// In en, this message translates to:
+  /// **'Sensor Data'**
+  String get sensorData;
+
+  /// No description provided for @alternativeCrops.
+  ///
+  /// In en, this message translates to:
+  /// **'Alternative Crops'**
+  String get alternativeCrops;
+
+  /// No description provided for @predictionSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Prediction saved to database'**
+  String get predictionSaved;
+
+  /// No description provided for @failedToSavePrediction.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to save prediction'**
+  String get failedToSavePrediction;
+
+  /// No description provided for @degreesCelsius.
+  ///
+  /// In en, this message translates to:
+  /// **'°C'**
+  String get degreesCelsius;
+
+  /// No description provided for @percentage.
+  ///
+  /// In en, this message translates to:
+  /// **'%'**
+  String get percentage;
+
+  /// No description provided for @millimeters.
+  ///
+  /// In en, this message translates to:
+  /// **'mm'**
+  String get millimeters;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
 }
 
 class _AppLocalizationsDelegate

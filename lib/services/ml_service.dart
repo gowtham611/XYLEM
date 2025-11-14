@@ -1,8 +1,11 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../providers/sensor_data_provider.dart';
 import 'onnx_runtime_service.dart';
+import 'xai_explanation_service.dart';
+import '../models/prediction_history.dart' as history_model;
 
 class CropPrediction {
   final String cropName;
@@ -10,6 +13,8 @@ class CropPrediction {
   final List<AlternativeCrop> alternativeCrops;
   final List<AlternativeCrop> top3Crops;
   final SoilCondition soilCondition;
+  final history_model.XAIExplanation? xaiExplanation;
+  final history_model.SensorInputs? sensorInputs;
 
   CropPrediction({
     required this.cropName,
@@ -17,6 +22,8 @@ class CropPrediction {
     required this.alternativeCrops,
     required this.top3Crops,
     required this.soilCondition,
+    this.xaiExplanation,
+    this.sensorInputs,
   });
 }
 
@@ -106,10 +113,10 @@ class MLService {
   }
 
   /// Main prediction
-  Future<CropPrediction> predictCrop(SensorData data, double? rainfall) async {
+  Future<CropPrediction> predictCrop(SensorData data, double? rainfall, {BuildContext? context}) async {
     if (!_isInitialized) {
       await initializeModel();
-      if (!_isInitialized) return _fallbackPrediction(data);
+      if (!_isInitialized) return _fallbackPrediction(data, rainfall ?? 0.0, context: context);
     }
 
     try {
@@ -136,7 +143,7 @@ class MLService {
         inputName: "float_input",
       );
 
-      if (output.isEmpty) return _fallbackPrediction(data);
+      if (output.isEmpty) return _fallbackPrediction(data, rainfall);
 
       debugPrint("🧩 Raw ONNX output: $output");
 
@@ -152,16 +159,38 @@ class MLService {
       /// Top 3 predicted crops
       final top3 = _extractTop3(probs, maxIdx);
 
+      // Generate XAI explanation
+      final xaiExplanation = XAIExplanationService.generateExplanation(
+        predictedCrop: cropName,
+        confidence: maxVal,
+        sensorData: data,
+        rainfall: rainfall,
+        context: context,
+      );
+
+      // Create sensor inputs model
+      final sensorInputs = history_model.SensorInputs(
+        nitrogen: data.nitrogen,
+        phosphorus: data.phosphorus,
+        potassium: data.potassium,
+        temperature: data.temperature,
+        humidity: data.humidity,
+        ph: data.ph,
+        rainfall: rainfall,
+      );
+
       return CropPrediction(
         cropName: cropName,
         confidence: maxVal,
         alternativeCrops: _getAlternativeCrops(data),
         top3Crops: top3,
         soilCondition: _analyzeSoilCondition(data),
+        xaiExplanation: xaiExplanation,
+        sensorInputs: sensorInputs,
       );
     } catch (e) {
       debugPrint("❌ ONNX prediction error: $e");
-      return _fallbackPrediction(data);
+      return _fallbackPrediction(data, rainfall ?? 0.0);
     }
   }
 
@@ -190,13 +219,34 @@ class MLService {
   }
 
   /// Fallback rule-based prediction
-  CropPrediction _fallbackPrediction(SensorData data) {
+  CropPrediction _fallbackPrediction(SensorData data, double rainfall, {BuildContext? context}) {
+    // Generate XAI for fallback too
+    final xaiExplanation = XAIExplanationService.generateExplanation(
+      predictedCrop: "cotton",
+      confidence: 0.5,
+      sensorData: data,
+      rainfall: rainfall,
+      context: context,
+    );
+
+    final sensorInputs = history_model.SensorInputs(
+      nitrogen: data.nitrogen,
+      phosphorus: data.phosphorus,
+      potassium: data.potassium,
+      temperature: data.temperature,
+      humidity: data.humidity,
+      ph: data.ph,
+      rainfall: rainfall,
+    );
+
     return CropPrediction(
       cropName: "cotton",
       confidence: 0.5,
       alternativeCrops: _getAlternativeCrops(data),
       top3Crops: [],
       soilCondition: _analyzeSoilCondition(data),
+      xaiExplanation: xaiExplanation,
+      sensorInputs: sensorInputs,
     );
   }
 

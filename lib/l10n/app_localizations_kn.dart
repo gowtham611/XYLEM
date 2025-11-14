@@ -1061,4 +1061,132 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get overall => 'ಸಮಗ್ರ';
+
+  @override
+  String xaiWhyCrop(String crop) {
+    return 'ಏಕೆ $crop?';
+  }
+
+  @override
+  String get xaiFeatureAnalysis => 'ವೈಶಿಷ್ಟ್ಯ ವಿಶ್ಲೇಷಣೆ';
+
+  @override
+  String get xaiFavorableConditions => 'ಅನುಕೂಲಕರ ಪರಿಸ್ಥಿತಿಗಳು';
+
+  @override
+  String get xaiLimitingFactors => 'ಸೀಮಿತಗೊಳಿಸುವ ಅಂಶಗಳು';
+
+  @override
+  String get xaiAIInsight => 'AI ಒಳನೋಟ';
+
+  @override
+  String get xaiImportance => 'ಪ್ರಾಮುಖ್ಯತೆ';
+
+  @override
+  String get xaiPositiveImpact => 'ಧನಾತ್ಮಕ';
+
+  @override
+  String get xaiNegativeImpact => 'ಋಣಾತ್ಮಕ';
+
+  @override
+  String get xaiNeutralImpact => 'ತಟಸ್ಥ';
+
+  @override
+  String get featureNitrogen => 'ನೈಟ್ರೋಜನ್ (N)';
+
+  @override
+  String get featurePhosphorus => 'ಫಾಸ್ಫರಸ್ (P)';
+
+  @override
+  String get featurePotassium => 'ಪೊಟ್ಯಾಸಿಯಮ್ (K)';
+
+  @override
+  String get featureTemperature => 'ತಾಪಮಾನ';
+
+  @override
+  String get featureHumidity => 'ಆರ್ದ್ರತೆ';
+
+  @override
+  String get featurePH => 'ಮಣ್ಣಿನ pH';
+
+  @override
+  String get featureRainfall => 'ಮಳೆ';
+
+  @override
+  String get predictionHistory => 'ಭವಿಷ್ಯವಾಣಿ ಇತಿಹಾಸ';
+
+  @override
+  String get noPredictionHistory => 'ಯಾವುದೇ ಭವಿಷ್ಯವಾಣಿ ಇತಿಹಾಸವಿಲ್ಲ';
+
+  @override
+  String get runPredictionsToSeeHistory =>
+      'ಇಲ್ಲಿ ನೋಡಲು ಕೆಲವು ಭವಿಷ್ಯವಾಣಿಗಳನ್ನು ರನ್ ಮಾಡಿ';
+
+  @override
+  String get statistics => 'ಅಂಕಿಅಂಶಗಳು';
+
+  @override
+  String get total => 'ಒಟ್ಟು';
+
+  @override
+  String get avgConfidence => 'ಸರಾಸರಿ ವಿಶ್ವಾಸ';
+
+  @override
+  String get topCrop => 'ಉತ್ತಮ ಬೆಳೆ';
+
+  @override
+  String get clearAll => 'ಎಲ್ಲವನ್ನೂ ತೆರವುಗೊಳಿಸಿ';
+
+  @override
+  String get clearAllPredictions => 'ಎಲ್ಲಾ ಭವಿಷ್ಯವಾಣಿಗಳನ್ನು ತೆರವುಗೊಳಿಸುವುದೇ?';
+
+  @override
+  String get clearAllConfirmation =>
+      'ಇದು ಎಲ್ಲಾ ಭವಿಷ್ಯವಾಣಿ ಇತಿಹಾಸವನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುತ್ತದೆ. ಈ ಕ್ರಿಯೆಯನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ.';
+
+  @override
+  String get cancel => 'ರದ್ದುಮಾಡಿ';
+
+  @override
+  String get deleteAll => 'ಎಲ್ಲವನ್ನೂ ಅಳಿಸಿ';
+
+  @override
+  String get allPredictionsCleared => 'ಎಲ್ಲಾ ಭವಿಷ್ಯವಾಣಿಗಳನ್ನು ತೆರವುಗೊಳಿಸಲಾಗಿದೆ';
+
+  @override
+  String get predictionDeleted => 'ಭವಿಷ್ಯವಾಣಿ ಅಳಿಸಲಾಗಿದೆ';
+
+  @override
+  String get errorLoadingPredictions => 'ಭವಿಷ್ಯವಾಣಿಗಳನ್ನು ಲೋಡ್ ಮಾಡುವಲ್ಲಿ ದೋಷ';
+
+  @override
+  String get errorDeletingPrediction => 'ಭವಿಷ್ಯವಾಣಿ ಅಳಿಸುವಲ್ಲಿ ದೋಷ';
+
+  @override
+  String get errorClearingPredictions =>
+      'ಭವಿಷ್ಯವಾಣಿಗಳನ್ನು ತೆರವುಗೊಳಿಸುವಲ್ಲಿ ದೋಷ';
+
+  @override
+  String get sensorData => 'ಸಂವೇದಕ ಡೇಟಾ';
+
+  @override
+  String get alternativeCrops => 'ಪರ್ಯಾಯ ಬೆಳೆಗಳು';
+
+  @override
+  String get predictionSaved => 'ಭವಿಷ್ಯವಾಣಿಯನ್ನು ಡೇಟಾಬೇಸ್‌ಗೆ ಉಳಿಸಲಾಗಿದೆ';
+
+  @override
+  String get failedToSavePrediction => 'ಭವಿಷ್ಯವಾಣಿಯನ್ನು ಉಳಿಸಲು ವಿಫಲವಾಗಿದೆ';
+
+  @override
+  String get degreesCelsius => '°C';
+
+  @override
+  String get percentage => '%';
+
+  @override
+  String get millimeters => 'mm';
+
+  @override
+  String get delete => 'ಅಳಿಸಿ';
 }

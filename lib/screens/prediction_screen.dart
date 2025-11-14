@@ -9,6 +9,11 @@ import '../services/ml_service.dart';
 import '../services/onnx_runtime_service.dart';
 import 'package:lottie/lottie.dart';
 import '../l10n/app_localizations.dart';
+import '../services/prediction_database_service.dart';
+import '../models/prediction_history.dart' as history_model;
+import 'package:uuid/uuid.dart';
+import '../widgets/xai_explanation_widget.dart';
+import 'prediction_history_screen.dart';
 
 
 class PredictionScreen extends StatefulWidget {
@@ -26,6 +31,8 @@ class _PredictionScreenState extends State<PredictionScreen>
   String? _ortStatus;
 
   final MLService _mlService = MLService();
+  final PredictionDatabaseService _dbService = PredictionDatabaseService();
+  final _uuid = const Uuid();
 
   // Animation controllers for reveal
   late AnimationController _revealController;
@@ -94,7 +101,12 @@ class _PredictionScreenState extends State<PredictionScreen>
 
     try {
       await _mlService.initializeModel();
-      final pred = await _mlService.predictCrop(data, null);
+      final pred = await _mlService.predictCrop(data, null, context: context);
+
+      // Save to database if prediction has XAI explanation
+      if (pred.xaiExplanation != null && pred.sensorInputs != null) {
+        await _savePredictionToDatabase(pred);
+      }
 
       // Animate reveal
       setState(() {
@@ -111,6 +123,48 @@ class _PredictionScreenState extends State<PredictionScreen>
       setState(() {
         _loading = false;
       });
+    }
+  }
+
+  /// Save prediction to local JSON database
+  Future<void> _savePredictionToDatabase(CropPrediction prediction) async {
+    try {
+      if (prediction.xaiExplanation == null || prediction.sensorInputs == null) {
+        return;
+      }
+
+      // Convert alternatives from CropPrediction to history model
+      final alternatives = prediction.top3Crops.map((alt) {
+        return history_model.AlternativePrediction(
+          cropName: alt.name,
+          confidence: alt.confidence,
+          reason: 'High confidence alternative based on sensor conditions',
+        );
+      }).toList();
+
+      // Convert soil condition to soil analysis
+      final soilAnalysis = history_model.SoilAnalysis(
+        overallStatus: prediction.soilCondition.overall,
+        issues: prediction.soilCondition.issues,
+        recommendations: prediction.soilCondition.recommendations,
+        nutrientLevels: {},
+      );
+
+      final historyEntry = history_model.PredictionHistory(
+        id: _uuid.v4(),
+        timestamp: DateTime.now(),
+        predictedCrop: prediction.cropName,
+        confidence: prediction.confidence,
+        sensorData: prediction.sensorInputs!,
+        explanation: prediction.xaiExplanation!,
+        alternatives: alternatives,
+        soilAnalysis: soilAnalysis,
+      );
+
+      await _dbService.savePrediction(historyEntry);
+      debugPrint('✅ Prediction saved to database');
+    } catch (e) {
+      debugPrint('❌ Failed to save prediction: $e');
     }
   }
 
@@ -205,7 +259,17 @@ class _PredictionScreenState extends State<PredictionScreen>
                 ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
                 : const Icon(Icons.check_circle_outline, color: Colors.white),
             tooltip: l10n?.checkOnnxRuntime ?? 'Check ONNX Runtime',
-          )
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const PredictionHistoryScreen()),
+              );
+            },
+            icon: const Icon(Icons.history, color: Colors.white),
+            tooltip: 'View History',
+          ),
         ],
       ),
     );
@@ -795,6 +859,14 @@ class _PredictionCardBodyState extends State<_PredictionCardBody> {
                   ...soil.recommendations.map((r) => ListTile(dense: true, leading: const Icon(Icons.check_circle_outline, color: Colors.green), title: Text(r, style: GoogleFonts.roboto(fontSize: 13)))),
                 ],
               ),
+              
+              // Add XAI Explanation if available
+              if (pred.xaiExplanation != null)
+                XAIExplanationWidget(
+                  explanation: pred.xaiExplanation!,
+                  cropName: pred.cropName,
+                  confidence: pred.confidence,
+                ),
             ],
           ),
         ),

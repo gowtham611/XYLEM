@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'providers/sensor_data_provider.dart';
 import 'providers/govt_schemes_provider.dart';
 import 'providers/language_provider.dart';
@@ -115,24 +116,12 @@ class _SplashScreenState extends State<SplashScreen>
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 150,
-                  height: 150,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black26,
-                        blurRadius: 20,
-                        offset: Offset(0, 10),
-                      ),
-                    ],
-                  ),
-                  child: const Icon(
-                    Icons.agriculture,
-                    size: 80,
-                    color: Colors.black26,
+                SizedBox(
+                  width: 250,
+                  height: 250,
+                  child: Lottie.asset(
+                    'assets/animations/loading.json',
+                    fit: BoxFit.contain,
                   ),
                 ),
                 const SizedBox(height: 30),

@@ -366,5 +366,58 @@
 
   
   "soil": "ಮಣ್ಣು",
-  "overall": "ಸಮಗ್ರ"
+  "overall": "ಸಮಗ್ರ",
+  
+  "xaiWhyCrop": "ಏಕೆ {crop}?",
+  "@xaiWhyCrop": {
+    "placeholders": {
+      "crop": {
+        "type": "String"
+      }
+    }
+  },
+  "xaiFeatureAnalysis": "ವೈಶಿಷ್ಟ್ಯ ವಿಶ್ಲೇಷಣೆ",
+  "xaiFavorableConditions": "ಅನುಕೂಲಕರ ಪರಿಸ್ಥಿತಿಗಳು",
+  "xaiLimitingFactors": "ಸೀಮಿತಗೊಳಿಸುವ ಅಂಶಗಳು",
+  "xaiAIInsight": "AI ಒಳನೋಟ",
+  "xaiImportance": "ಪ್ರಾಮುಖ್ಯತೆ",
+  "xaiPositiveImpact": "ಧನಾತ್ಮಕ",
+  "xaiNegativeImpact": "ಋಣಾತ್ಮಕ",
+  "xaiNeutralImpact": "ತಟಸ್ಥ",
+  
+  "featureNitrogen": "ನೈಟ್ರೋಜನ್ (N)",
+  "featurePhosphorus": "ಫಾಸ್ಫರಸ್ (P)",
+  "featurePotassium": "ಪೊಟ್ಯಾಸಿಯಮ್ (K)",
+  "featureTemperature": "ತಾಪಮಾನ",
+  "featureHumidity": "ಆರ್ದ್ರತೆ",
+  "featurePH": "ಮಣ್ಣಿನ pH",
+  "featureRainfall": "ಮಳೆ",
+  
+  "predictionHistory": "ಭವಿಷ್ಯವಾಣಿ ಇತಿಹಾಸ",
+  "noPredictionHistory": "ಯಾವುದೇ ಭವಿಷ್ಯವಾಣಿ ಇತಿಹಾಸವಿಲ್ಲ",
+  "runPredictionsToSeeHistory": "ಇಲ್ಲಿ ನೋಡಲು ಕೆಲವು ಭವಿಷ್ಯವಾಣಿಗಳನ್ನು ರನ್ ಮಾಡಿ",
+  "statistics": "ಅಂಕಿಅಂಶಗಳು",
+  "total": "ಒಟ್ಟು",
+  "avgConfidence": "ಸರಾಸರಿ ವಿಶ್ವಾಸ",
+  "topCrop": "ಉತ್ತಮ ಬೆಳೆ",
+  "clearAll": "ಎಲ್ಲವನ್ನೂ ತೆರವುಗೊಳಿಸಿ",
+  "clearAllPredictions": "ಎಲ್ಲಾ ಭವಿಷ್ಯವಾಣಿಗಳನ್ನು ತೆರವುಗೊಳಿಸುವುದೇ?",
+  "clearAllConfirmation": "ಇದು ಎಲ್ಲಾ ಭವಿಷ್ಯವಾಣಿ ಇತಿಹಾಸವನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುತ್ತದೆ. ಈ ಕ್ರಿಯೆಯನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ.",
+  "cancel": "ರದ್ದುಮಾಡಿ",
+  "deleteAll": "ಎಲ್ಲವನ್ನೂ ಅಳಿಸಿ",
+  "allPredictionsCleared": "ಎಲ್ಲಾ ಭವಿಷ್ಯವಾಣಿಗಳನ್ನು ತೆರವುಗೊಳಿಸಲಾಗಿದೆ",
+  "predictionDeleted": "ಭವಿಷ್ಯವಾಣಿ ಅಳಿಸಲಾಗಿದೆ",
+  "errorLoadingPredictions": "ಭವಿಷ್ಯವಾಣಿಗಳನ್ನು ಲೋಡ್ ಮಾಡುವಲ್ಲಿ ದೋಷ",
+  "errorDeletingPrediction": "ಭವಿಷ್ಯವಾಣಿ ಅಳಿಸುವಲ್ಲಿ ದೋಷ",
+  "errorClearingPredictions": "ಭವಿಷ್ಯವಾಣಿಗಳನ್ನು ತೆರವುಗೊಳಿಸುವಲ್ಲಿ ದೋಷ",
+  
+  "sensorData": "ಸಂವೇದಕ ಡೇಟಾ",
+  "alternativeCrops": "ಪರ್ಯಾಯ ಬೆಳೆಗಳು",
+  "predictionSaved": "ಭವಿಷ್ಯವಾಣಿಯನ್ನು ಡೇಟಾಬೇಸ್‌ಗೆ ಉಳಿಸಲಾಗಿದೆ",
+  "failedToSavePrediction": "ಭವಿಷ್ಯವಾಣಿಯನ್ನು ಉಳಿಸಲು ವಿಫಲವಾಗಿದೆ",
+  
+  "degreesCelsius": "°C",
+  "percentage": "%",
+  "millimeters": "mm",
+  "delete": "ಅಳಿಸಿ"
 }
