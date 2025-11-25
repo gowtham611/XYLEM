@@ -71,10 +71,28 @@ ML model runs directly on your mobile device for:
 ##  Application Screens
 
 1. **Dashboard** - Overview of all farming metrics
-2. **Connection Screen** - Sensor pairing and connectivity
-3. **Recommendation Screen** - AI-powered crop suggestions
-4. **Market Price Monitoring** - Live crop pricing data
-5. **Weather Monitoring** - Real-time weather information
+
+![WhatsApp Image 2025-11-25 at 11 11 07_b763f6e5](https://github.com/user-attachments/assets/badbfc0b-d8a0-43cf-8e3a-958845211f44)
+
+3. **Connection Screen** - Sensor pairing and connectivity
+
+![WhatsApp Image 2025-11-25 at 11 11 06_ecb02b21](https://github.com/user-attachments/assets/3e4526a8-16b7-4e17-b0b8-031f6cfd03ff)
+
+4. **Recommendation Screen** - AI-powered crop suggestions
+
+![WhatsApp Image 2025-11-25 at 11 11 06_1819ba79](https://github.com/user-attachments/assets/d7a11139-324f-42a4-a51b-3b37de5187f6)
+
+5. **Market Price Monitoring** - Live crop pricing data
+
+   ![WhatsApp Image 2025-11-25 at 11 11 05_518fee5c](https://github.com/user-attachments/assets/474146ea-0d3d-41b8-b46f-d74f9b1b9ca6)
+
+6. **Weather Monitoring** - Real-time weather information
+
+   ![WhatsApp Image 2025-11-25 at 11 11 06_d43e9da3](https://github.com/user-attachments/assets/8adfce3f-cd04-45a1-a4c0-dbd8259109d3)
+
+7. **Government Schemes** - Real time government schemes information
+
+   ![WhatsApp Image 2025-11-25 at 11 11 07_eaebb348](https://github.com/user-attachments/assets/e2d7685c-a57c-4237-95f0-49f3bb899670)
 
 ---
 
