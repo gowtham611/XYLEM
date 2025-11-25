@@ -1,4 +1,4 @@
-# XYLEM 🌱
+# XYLEM 
 
 **Edge-Powered XAI-Based Crop Recommendation System**
 
@@ -6,7 +6,7 @@ XYLEM is an innovative mobile application designed to empower farmers with intel
 
 ---
 
-## 🎯 Overview
+##  Overview
 
 XYLEM combines cutting-edge technology with agricultural expertise to help farmers make data-driven decisions. The application integrates with a 7-in-1 sensor system to collect real-world data from your fields and processes it using an on-device AI model to provide actionable insights.
 
@@ -20,29 +20,29 @@ XYLEM combines cutting-edge technology with agricultural expertise to help farme
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
-### 📊 **Dashboard**
+###  **Dashboard**
 Central hub for all your farming data and quick access to all features
 
 ### 🔗 **Connection Screen**
 Seamlessly connect your mobile app to the 7-in-1 sensor system deployed in your field
 
-### 🌾 **Crop Recommendation**
+###  **Crop Recommendation**
 - AI-powered crop suggestions based on real-world soil and environmental data
 - Detailed descriptions of recommended crops
 - Explainable AI (XAI) insights into why certain crops are recommended
 
-### 💰 **Market Price Monitoring**
+###  **Market Price Monitoring**
 Live market prices for various crops to help you make informed selling decisions
 
-### 🌤️ **Weather Monitoring**
+###  **Weather Monitoring**
 Real-time weather data and forecasts to plan your farming activities
 
-### 📰 **Farming News**
+###  **Farming News**
 Stay updated with the latest news and trends in agriculture
 
-### 🤖 **On-Device Machine Learning**
+###  **On-Device Machine Learning**
 ML model runs directly on your mobile device for:
 - Privacy-first approach
 - Faster predictions
@@ -50,7 +50,7 @@ ML model runs directly on your mobile device for:
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 - **Frontend**: Flutter (Dart)
 - **Machine Learning**: On-device ML models
@@ -68,7 +68,7 @@ ML model runs directly on your mobile device for:
 
 ---
 
-## 📱 Application Screens
+##  Application Screens
 
 1. **Dashboard** - Overview of all farming metrics
 2. **Connection Screen** - Sensor pairing and connectivity
@@ -78,7 +78,7 @@ ML model runs directly on your mobile device for:
 
 ---
 
-## 🔧 Hardware Requirements
+##  Hardware Requirements
 
 ### 7-in-1 Sensor System
 The XYLEM system includes a multi-parameter sensor that measures:
@@ -93,7 +93,7 @@ The XYLEM system includes a multi-parameter sensor that measures:
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### For Farmers (End Users)
 
@@ -152,7 +152,7 @@ flutter build ios --release
 
 ---
 
-## 📊 How It Works
+##  How It Works
 
 ```
 ┌─────────────────┐
@@ -189,7 +189,7 @@ flutter build ios --release
 
 ---
 
-## 🌾 Supported Crops
+##  Supported Crops
 
 XYLEM's AI model can recommend a wide variety of crops based on your soil conditions and environmental factors. The system provides detailed information about:
 - Ideal growing conditions
@@ -200,7 +200,7 @@ XYLEM's AI model can recommend a wide variety of crops based on your soil condit
 
 ---
 
-## 📖 User Guide
+##  User Guide
 
 ### Connecting Your Sensors
 1. Ensure sensors are properly installed in your field
@@ -223,7 +223,7 @@ XYLEM's AI model can recommend a wide variety of crops based on your soil condit
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome feedback and suggestions from our farming community!
 
@@ -240,7 +240,7 @@ For support, feedback, or collaboration:
 
 ---
 
-## 🔒 Privacy & Data
+##  Privacy & Data
 
 - All ML processing happens **on your device**
 - Your farming data stays **private and secure**
@@ -249,7 +249,7 @@ For support, feedback, or collaboration:
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
 ### Current Features
 - ✅ Real-time crop monitoring
@@ -275,13 +275,13 @@ This project currently does not have a formal license. All rights reserved.
 
 ---
 
-## 👥 Team
+##  Team
 
-Developed with ❤️ for farmers by [@gowtham611](https://github.com/gowtham611)
+Developed with  for farmers by [@gowtham611](https://github.com/gowtham611)
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Thanks to all farmers who provided valuable feedback during development
 - Agricultural experts who contributed to crop knowledge base
@@ -289,19 +289,19 @@ Developed with ❤️ for farmers by [@gowtham611](https://github.com/gowtham611
 
 ---
 
-## 📞 Support
+## Support
 
 Having trouble with XYLEM? We're here to help!
 
-- 📧 Email: [Your Support Email]
-- 🐛 Bug Reports: [GitHub Issues](https://github.com/gowtham611/XYLEM/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/gowtham611/XYLEM/discussions)
+-  Email: [gow636333@gmail.com]
+-  Bug Reports: [GitHub Issues](https://github.com/gowtham611/XYLEM/issues)
+-  Discussions: [GitHub Discussions](https://github.com/gowtham611/XYLEM/discussions)
 
 ---
 
-## 🌟 Show Your Support
+##  Show Your Support
 
-If XYLEM is helping you with your farming decisions, please ⭐ star this repository!
+If XYLEM is helping you with your farming decisions, please  star this repository!
 
 ---
 
@@ -309,6 +309,6 @@ If XYLEM is helping you with your farming decisions, please ⭐ star this reposi
 
 **XYLEM** - *Empowering Farmers with AI*
 
-Made with 🌱 for the farming community
+Made with  for the farming community
 
 </div>
